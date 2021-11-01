@@ -3,6 +3,7 @@
 using namespace std;
 class Staff{
     private:
+        int Number;
         int IDStaff;
         string FullName;
         int Age;

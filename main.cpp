@@ -7,6 +7,17 @@ int main(){
     l->Input();
     l->Show();
 
+    // cout<<"Nhap ID can tim : ";
+    // int IDStaff;
+    // cin>>IDStaff;
+    // l->Search(IDStaff);
+    int k;
+    cout<<"IDStaff : ";
+    cin>>k;
+    l->Delete_IDStaff(k);
+    l->Show();
+
+    
     
     
 

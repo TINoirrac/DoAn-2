@@ -27,11 +27,14 @@ public:
     void Input();
 	void Show();
 	void Insert(Staff  s); //chen them 1 staff vao cuoi danh sach
-	int Search(Staff  s); //tim staff x trong danh sach
+
+
+	int Search(int); //tim staff x trong danh sach
     // void Search(int);
 
-	void Delete_k(Staff &s, int k); //xoa 1 staff tai vi tri k trong danh sach
-	void Delete(Staff  s); //xoa 1 staff trong danh sach
+	void Delete_k( int ); //xoa 1 staff tai vi tri k trong danh sach
+	void Delete_(int ); //xoa 1 staff trong danh sach
+    void Update(ListStaff &l,int IDStaff);
 	
 	
 };

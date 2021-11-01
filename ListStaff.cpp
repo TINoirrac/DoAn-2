@@ -76,28 +76,36 @@ void ListStaff::Insert(Staff s)
 		tail = P; //luu lai vi tri cuoi
 	}
 }
-int ListStaff::Search(Staff s)
+int ListStaff::Search(int IDStaff)
 {
-	
+	int check = 0;
 	Node* P = head;
 	int i = 1;
-	while (P != NULL && P->getData() != s) //duyet danh sach den khi tim thay hoac den khi het danh sach
+	while (P != NULL && P->getData().Get_IDStaff() != IDStaff) //duyet danh sach den khi tim thay hoac den khi het danh sach
 	{
 		P = P->getRight();
 		i++;
 	}
-	if (P != NULL) return i; //tra ve vi tri tim thay
-	return 0; //khong tim thay
+	if (P != NULL) 
+		{
+			cout<<"Thong tin can tim : "<<endl;
+			P->getData().Output(); //tra ve vi tri tim thay
+			check+=1;
+		}
+	else
+		cout<<"Khong tim thay ! "; //khong tim thay
+
+	return check;
 }
 
 
-void ListStaff::Delete_k(Staff& s, int k)
+void ListStaff::Delete_k(int k)
 {
 	Node* P_head = head;
 	Node* P_tail = tail;
 	int i = 1;
-	int l = length();
-	if (k<1 || k>l)
+	int len = length();
+	if (k<1 || k>len)
 		cout << "Vi tri xoa khong hop le!";
 	else
 	{
@@ -105,12 +113,12 @@ void ListStaff::Delete_k(Staff& s, int k)
 		{
 			if (k == 1) //xoa vi tri dau tien
 			{
-				s = head->getData(); //lay gia tri ra neu can dung
+				// s = head->getData(); //lay gia tri ra neu can dung
 				head = head->getRight(); //cho l tro den node thu hai trong danh sach
 			}
-			if (k == l) //xoa vi tri cuoi
+			if (k == len) //xoa vi tri cuoi
 			{
-				s = tail->getData();
+				// s = tail->getData();
 				tail = tail->getLeft();
 				tail->setRight(NULL);
 			}
@@ -127,13 +135,12 @@ void ListStaff::Delete_k(Staff& s, int k)
 		}
 	}
 }
-void ListStaff::Delete(Staff s)
+void ListStaff::Delete_IDStaff(int IDStaff)
 {
-	int k = Search(s);
+	int k = Search(IDStaff);
 	while (k)
 	{
-		Delete_k(s, k); //trong khi van tim thay x thi van xoa
-		k = Search(s);
+		Delete_k( k); //trong khi van tim thay x thi van xoa
 	}
 }
 
