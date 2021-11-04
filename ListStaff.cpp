@@ -76,10 +76,11 @@ void ListStaff::Insert(Staff s)
 		tail = P; //luu lai vi tri cuoi
 	}
 }
-int ListStaff::Search(int IDStaff)
+Node* ListStaff::Search(int IDStaff)
 {
-	int check = 0;
+	int check = -1;
 	Node* P = head;
+	Node* temp= NULL;
 	int i = 1;
 	while (P != NULL && P->getData().Get_IDStaff() != IDStaff) //duyet danh sach den khi tim thay hoac den khi het danh sach
 	{
@@ -88,63 +89,73 @@ int ListStaff::Search(int IDStaff)
 	}
 	if (P != NULL) 
 		{
-			cout<<"Thong tin can tim : "<<endl;
 			P->getData().Output(); //tra ve vi tri tim thay
-			check+=1;
+			temp = P;
 		}
 	else
 		cout<<"Khong tim thay ! "; //khong tim thay
 
-	return check;
+	return temp;
+
 }
 
 
-void ListStaff::Delete_k(int k)
-{
-	Node* P_head = head;
-	Node* P_tail = tail;
-	int i = 1;
-	int len = length();
-	if (k<1 || k>len)
-		cout << "Vi tri xoa khong hop le!";
-	else
-	{
-		if (!isEmpty())
-		{
-			if (k == 1) //xoa vi tri dau tien
-			{
-				// s = head->getData(); //lay gia tri ra neu can dung
-				head = head->getRight(); //cho l tro den node thu hai trong danh sach
-			}
-			if (k == len) //xoa vi tri cuoi
-			{
-				// s = tail->getData();
-				tail = tail->getLeft();
-				tail->setRight(NULL);
-			}
-			else //xoa vi tri 1 < k < l
-			{
-				while (P_head != NULL && i != k - 1) //duyet den vi tri k-1
-				{
-					i++;
-					P_head = P_head->getRight();
-				}
-				P_head->setRight(P_tail);
-				P_tail->setLeft(P_head);
-			}
-		}
-	}
-}
+// void ListStaff::Delete_k(int k)
+// {
+// 	Node* P_head = head;
+// 	Node* P_tail = tail;
+// 	int i = 1;
+// 	int len = length();
+// 	if (k<1 || k>len)
+// 		cout << "Vi tri xoa khong hop le!";
+// 	else
+// 	{
+// 		if (!isEmpty())
+// 		{
+// 			if (k == 1) //xoa vi tri dau tien
+// 			{
+// 				// s = head->getData(); //lay gia tri ra neu can dung
+// 				head = head->getRight(); //cho l tro den node thu hai trong danh sach
+// 			}
+// 			if (k == len) //xoa vi tri cuoi
+// 			{
+// 				// s = tail->getData();
+// 				tail = tail->getLeft();
+// 				tail->setRight(NULL);
+// 			}
+// 			else //xoa vi tri 1 < k < l
+// 			{
+// 				while (P_head != NULL && i != k - 1) //duyet den vi tri k-1
+// 				{
+// 					i++;
+// 					P_head = P_head->getRight();
+// 				}
+// 				P_head->setRight(P_tail);
+// 				P_tail->setLeft(P_head);
+// 			}
+// 		}
+// 	}
+// 	delete P_head,P_tail;
+// }
 void ListStaff::Delete_IDStaff(int IDStaff)
 {
-	int k = Search(IDStaff);
-	while (k)
+	Node* temp = Search(IDStaff);
+	Node* P_before ;
+	Node* P_after = head;
+	while (P_after != NULL && P_after != temp)
 	{
-		Delete_k( k); //trong khi van tim thay x thi van xoa
+		P_before = P_after;
+		P_after->getRight();
 	}
+	*P_before->getRight() = *P_after->getRight();
+
 }
 
 
+void ListStaff::Update(int IDStaff)
+{
+	
+}
 void ListStaff::Input()
 {
 	int i = 1;

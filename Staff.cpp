@@ -8,7 +8,7 @@ Staff::Staff()
 
 Staff::Staff(int IDStaff,string FullName,int Age,string Numberphone,float Salary)
 {
-    // this->Number=Number;
+    this->Number=Number;
     this->IDStaff = IDStaff;
     this->FullName = FullName;
     this->Age = Age;
@@ -25,9 +25,13 @@ int Staff::Get_IDStaff()
 {
     return this->IDStaff;
 }
-
+int Staff::Get_Number()
+{
+    return this->Number;
+}
 void Staff::Input()
 {
+
     cout<<"Nhap ma nhan vien : ";
     cin>>this->IDStaff;
     cout<<"Nhap ho va ten nhan vien : ";

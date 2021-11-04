@@ -16,7 +16,7 @@ class Staff{
         ~Staff();
 
         int Get_IDStaff(); 
-
+        int Get_Number();
         void Input();
         void Output();
         bool operator!=(Staff& s);

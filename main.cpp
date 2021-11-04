@@ -12,7 +12,7 @@ int main(){
     // cin>>IDStaff;
     // l->Search(IDStaff);
     int k;
-    cout<<"IDStaff : ";
+    cout<<"IDStaff   : ";
     cin>>k;
     l->Delete_IDStaff(k);
     l->Show();
