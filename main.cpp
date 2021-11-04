@@ -15,6 +15,7 @@ int main(){
     cout<<"IDStaff   : ";
     cin>>k;
     l->Delete_IDStaff(k);
+    cout<<"-----Sau khi xoa-------"<<endl;
     l->Show();
 
     

@@ -140,15 +140,16 @@ Node* ListStaff::Search(int IDStaff)
 void ListStaff::Delete_IDStaff(int IDStaff)
 {
 	Node* temp = Search(IDStaff);
-	Node* P_before ;
-	Node* P_after = head;
-	while (P_after != NULL && P_after != temp)
-	{
-		P_before = P_after;
-		P_after->getRight();
-	}
-	*P_before->getRight() = *P_after->getRight();
-
+	if(head == temp)
+		head = temp->getRight();
+	if(temp->getRight() != NULL)
+		*temp->getRight()->getLeft() = *temp->getRight();
+	// if(temp->getLeft() != NULL)
+	// 	*temp->getLeft()->getRight() = *temp->getLeft();
+	// delete temp;
+	if(tail == temp)
+		tail = temp->getLeft();
+	
 }
 
 
