@@ -1,9 +1,9 @@
-#include "TableFood.h"
-#include <iostream>
-using namespace std;
+// #include "TableFood.h"
+// #include <iostream>
+// using namespace std;
 
-int main()
-{
-    TableFood obj;
-    obj.Status();
-}
+// int main()
+// {
+//     TableFood obj;
+//     obj.Status();
+// }

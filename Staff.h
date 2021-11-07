@@ -1,23 +1,22 @@
 #pragma once
-#include<iostream>
+#include <iostream>
 using namespace std;
-class Staff{
-    private:
-        int Number;
-        int IDStaff;
-        string FullName;
-        int Age;
-        string Numberphone;
-        float Salary;
+class Staff
+{
+protected:
+    int IDStaff;
+    string FullName;
+    int Age;
+    string Numberphone;
+    float Salary;
 
-    public:
-        Staff();
-        Staff(int,string,int,string,float);
-        ~Staff();
-
-        int Get_IDStaff(); 
-        int Get_Number();
-        void Input();
-        void Output();
-        bool operator!=(Staff& s);
+public:
+    Staff();
+    Staff(int, string, int, string, float);
+    ~Staff();
+    int Get_IDStaff();
+    void Set_IDStaff(int);
+    void Input();
+    void Output();
+    bool operator!=(Staff &s);
 };

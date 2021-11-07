@@ -1,6 +1,6 @@
-#include"Staff.h"
-#include"ListStaff.h"
-#include<iostream>
+#include "Staff.h"
+#include "ListStaff.h"
+#include <iostream>
 
 using namespace std;
 
@@ -11,23 +11,23 @@ Node::Node(Staff s)
 	right = NULL;
 }
 
-Node::Node(Staff data, Node* left, Node* right)
+Node::Node(Staff data, Node *left, Node *right)
 {
 	this->data = data;
 	this->left = left;
 	this->right = right;
 }
-void Node::setData(Staff s) {data = s;}
-void Node::setLeft(Node* s) {left = s;}
-void Node::setRight(Node* s) {right = s;}
-Staff Node::getData() {return data;}
-Node* Node::getLeft() {return left;}
-Node* Node::getRight() {return right;}
+void Node::setData(Staff s) { data = s; }
+void Node::setLeft(Node *s) { left = s; }
+void Node::setRight(Node *s) { right = s; }
+Staff Node::getData() { return data; }
+Node *Node::getLeft() { return left; }
+Node *Node::getRight() { return right; }
 
-Node* Node::makeNode(Staff s) //tao Node P chua thong tin la s
+Node *Node::makeNode(Staff s) //tao Node P chua thong tin la s
 {
-	Node* P = new Node(s); //cap phat vung nho cho P
-	P->setData(s); //ghi du lieu vao data
+	Node *P = new Node(s); //cap phat vung nho cho P
+	P->setData(s);		   //ghi du lieu vao data
 	P->setLeft(NULL);
 	P->setRight(NULL);
 	return P;
@@ -39,21 +39,24 @@ ListStaff::ListStaff()
 }
 int ListStaff::isEmpty()
 {
-	return (head==NULL);
+	return (head == NULL);
 }
 
 int ListStaff::length()
 {
-	Node* P_head = head; //tao node P_head la con tro duyet tu dau danh sach l
-	Node* P_tail = tail; //tao node P_tail la con tro duyet tu cuoi danh sach l
-	int i = 0; //bien dem
-	if (P_head != NULL) i = 1;
+	Node *P_head = head; //tao node P_head la con tro duyet tu dau danh sach l
+	Node *P_tail = tail; //tao node P_tail la con tro duyet tu cuoi danh sach l
+	int i = 0;			 //bien dem
+	if (P_head != NULL)
+		i = 1;
 	while (P_head != NULL) //trong khi P chua tro den NULL -> cuoi danh sach thi lam
 	{
-		if (P_head == P_tail) break;
+		if (P_head == P_tail)
+			break;
 		P_head = P_head->getRight(); //cho P_head tro den node tiep theo
 		i++;
-		if (P_head == P_tail) break;
+		if (P_head == P_tail)
+			break;
 		P_tail = P_tail->getLeft(); //cho P_tail tro den node truoc no
 		i++;
 	}
@@ -62,7 +65,7 @@ int ListStaff::length()
 
 void ListStaff::Insert(Staff s)
 {
-	Node* P = new Node(s, NULL, NULL);
+	Node *P = new Node(s, NULL, NULL);
 	P->makeNode(s);
 	if (isEmpty())
 	{
@@ -72,33 +75,26 @@ void ListStaff::Insert(Staff s)
 	else
 	{
 		tail->setRight(P); //ket noi voi danh sach
-		P->setLeft(tail); //P tro ve node ben trai
-		tail = P; //luu lai vi tri cuoi
+		P->setLeft(tail);  //P tro ve node ben trai
+		tail = P;		   //luu lai vi tri cuoi
 	}
 }
-Node* ListStaff::Search(int IDStaff)
+Node *ListStaff::Search(int IDStaff)
 {
-	int check = -1;
-	Node* P = head;
-	Node* temp= NULL;
-	int i = 1;
+	Node *P = head;
+	//Node *temp = NULL;
 	while (P != NULL && P->getData().Get_IDStaff() != IDStaff) //duyet danh sach den khi tim thay hoac den khi het danh sach
 	{
 		P = P->getRight();
-		i++;
 	}
-	if (P != NULL) 
-		{
-			P->getData().Output(); //tra ve vi tri tim thay
-			temp = P;
-		}
+	if (P != NULL)
+	{
+		P->getData().Output(); //tra ve vi tri tim thay
+	}
 	else
-		cout<<"Khong tim thay ! "; //khong tim thay
-
-	return temp;
-
+		cout << "Khong tim thay ! "; //khong tim thay
+	return P;
 }
-
 
 // void ListStaff::Delete_k(int k)
 // {
@@ -139,33 +135,36 @@ Node* ListStaff::Search(int IDStaff)
 // }
 void ListStaff::Delete_IDStaff(int IDStaff)
 {
-	Node* temp = Search(IDStaff);
-	if(head == temp)
+	Node *temp = Search(IDStaff);
+	if (head == temp)
 		head = temp->getRight();
-	if(temp->getRight() != NULL)
-		*temp->getRight()->getLeft() = *temp->getRight();
-	// if(temp->getLeft() != NULL)
-	// 	*temp->getLeft()->getRight() = *temp->getLeft();
-	// delete temp;
-	if(tail == temp)
+	if (temp->getRight() != NULL)
+		temp->getRight()->setLeft(temp->getLeft());
+	if (temp->getLeft() != NULL)
+		temp->getLeft()->setRight(temp->getRight());
+	if (tail == temp)
 		tail = temp->getLeft();
-	
 }
-
-
 void ListStaff::Update(int IDStaff)
 {
-	
+	//Node *temp = Search(IDStaff);
+	Node *P = Search(IDStaff);
+	//Node *temp = NULL;
+	Staff s;
+	cout << "\tnhap thong tin cap nhat cho ID " << IDStaff << ": " << endl;
+	s.Input();
+	P->setData(s);
 }
 void ListStaff::Input()
 {
 	int i = 1;
 	Staff s;
-	do 
+	do
 	{
 		cout << "Them 1 nhan vien:" << endl;
 		s.Input();
-		if (i != 0) Insert(s);
+		if (i != 0)
+			Insert(s);
 		cout << "Tiep tuc nhap nua khong? (1.Yes 0.No): ";
 		cin >> i;
 	} while (i != 0); //nhap 0 de ket thuc
@@ -173,7 +172,7 @@ void ListStaff::Input()
 
 void ListStaff::Show()
 {
-	Node* P = head;
+	Node *P = head;
 	while (P != tail->getRight())
 	{
 		P->getData().Output();
