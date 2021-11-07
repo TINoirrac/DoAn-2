@@ -82,7 +82,6 @@ void ListStaff::Insert(Staff s)
 Node *ListStaff::Search(int IDStaff)
 {
 	Node *P = head;
-	//Node *temp = NULL;
 	while (P != NULL && P->getData().Get_IDStaff() != IDStaff) //duyet danh sach den khi tim thay hoac den khi het danh sach
 	{
 		P = P->getRight();
@@ -147,9 +146,7 @@ void ListStaff::Delete_IDStaff(int IDStaff)
 }
 void ListStaff::Update(int IDStaff)
 {
-	//Node *temp = Search(IDStaff);
 	Node *P = Search(IDStaff);
-	//Node *temp = NULL;
 	Staff s;
 	cout << "\tnhap thong tin cap nhat cho ID " << IDStaff << ": " << endl;
 	s.Input();
