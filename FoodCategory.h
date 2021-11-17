@@ -1,15 +1,21 @@
 #include<iostream>
+#pragma once
 using namespace std;
 class FoodCategory
 {  
       private:
-        int IDCate;
+        string IDCate;
         string NameCate;
 
-    public:
+      public:
         FoodCategory();
-        FoodCategory(int,string);
+        FoodCategory(string,string);
         ~FoodCategory();
 
-        int Get_IDCate();
+        void Input();
+        void Output();
+        string Get_IDCate();
+        friend ostream& operator<<(ostream&,const FoodCategory&);
+        friend istream& operator>>(istream&,FoodCategory&);
+
 };

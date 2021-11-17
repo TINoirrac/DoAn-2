@@ -1,19 +1,23 @@
-#include <iostream>
+#pragma once
+#include<iostream>
 using namespace std;
-template <class data>
-class node
+template<class Data>
+class Node
 {
-    data info;
-    node *next;
-    node *prev;
+private:
+    Data info;
+    Node *left;
+    Node *right;
 
 public:
-    node(data);
-    node(data, node *, node *);
-    data get_info();
-    void set_info(data);
-    node *get_next();
-    void set_next(node *);
-    node *get_prev();
-    void set_prev(node *);
+    Node(Data s);
+    Node(Data info, Node *left, Node *right);
+    ~Node();
+    void setData(Data);
+    void setLeft(Node *);
+    void setRight(Node *);
+    Data getData();
+    Node *getLeft();
+    Node *getRight();
+    // Node *makeNode(Data s); //tao 1 Node chua thong tin la s
 };

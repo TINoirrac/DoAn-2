@@ -1,97 +1,101 @@
-#include "list.h"
-template <class data>
-list<data>::list()
+#include "List.h"
+#include<iostream>
+#include<iomanip>
+using namespace std;
+template<class Data>
+List<Data>::List()
 {
     this->head = NULL;
     this->tail = NULL;
 }
-template <class data>
-void list<data>::input()
+template<class Data>
+int List<Data>::isEmpty()
 {
-    int i = 1, count = 1;
-    data s;
-    do
-    {
-        cout << " Them thong tin " << count << ":" << endl;
-        cin >> s;
-        if (i != 0)
-            inserttail(s);
-        cout << "Tiep tuc nhap nua khong? (1.Yes 0.No): ";
-        cin >> i;
-        count++;
-    } while (i != 0); //nhap 0 de ket thuc
+	return (head == NULL);
 }
-template <class data>
-void list<data>::output()
+
+template<class Data>
+void List<Data>::Insert(Data s)
 {
-    node<data> *p = head;
-    cout << "\tthong tin nhan vien:\t\n";
-    while (p != NULL)
-    {
-        cout << p->get_info() << endl;
-        p = p->get_next();
-    }
+	Node<Data> *P = new Node<Data>(s);
+	if (isEmpty())
+	{
+		head = P;
+		tail = P;
+	}
+	else
+	{
+		tail->setRight(P); //ket noi voi danh sach
+		P->setLeft(tail);  //P tro ve node ben trai
+		tail = P;		   //luu lai vi tri cuoi
+	}
 }
-template <class data>
-void list<data>::inserttail(data s)
+template<class Data>
+Node<Data> *List<Data>::Search(int IDData)
 {
-    node<data> *p = new node<data>(s);
-    if (this->head == NULL)
-    {
-        this->head = this->tail = p;
-    }
-    else
-    {
-        this->tail->set_next(p);
-        p->set_prev(this->tail);
-        this->tail = p;
-    }
+	Node<Data> *P = head;
+	while (P != NULL && P->getData().Get_ID() != IDData) //duyet danh sach den khi tim thay hoac den khi het danh sach
+	{
+		P = P->getRight();
+	}
+	if (P != NULL)
+	{
+		P->getData().Output(); //tra ve vi tri tim thay
+	}
+	else
+		cout << "KHONG TIM THAY! "; //khong tim thay
+	return P;
 }
-template <class data>
-node<data> *list<data>::search(int iddata)
+
+template<class Data>
+void List<Data>::Delete_Node(int IDData)
 {
-    node *p = head;
-    while (p != head && p->get_info().get_idstaff() != iddata)
-    {
-        p = p->get_next();
-    }
-    if (p != NULL)
-    {
-        cout << "\tthong tin ID " << iddata << ": " << endl;
-        cout << p->get_info();
-        //return p;
-    }
-    else
-        cout << "\tkhong tim thay thong tin ID" << iddata << "." << endl;
-    return p;
+	Node <Data> *temp = Search(IDData);
+	if (head == temp)
+		head = temp->getRight();
+	if (temp->getRight() != NULL)
+		temp->getRight()->setLeft(temp->getLeft());
+	if (temp->getLeft() != NULL)
+		temp->getLeft()->setRight(temp->getRight());
+	if (tail == temp)
+		tail = temp->getLeft();
 }
-template <class data>
-void list<data>::deletenode(int iddata)
+template<class Data>
+void List<Data>::Update(int IDData)
 {
-    node *p = search(iddata);
-    if (this->head == p)
-    {
-        this->head = p->get_next();
-    }
-    if (p->get_next() != NULL)
-    {
-        p->get_next()->set_prev(p->get_prev());
-    }
-    if (p->get_prev() != NULL)
-    {
-        p->get_prev()->set_next(p->get_next());
-    }
-    if (this->tail == p)
-    {
-        this->tail = p->get_prev();
-    }
+	Node<Data> *P = Search(IDData);
+	Data s;
+	cout << "\n\t----------CAP NHAT THONG TIN Data----------"<< endl;
+	s.Input();
+	P->setData(s);
 }
-template <class data>
-void list<data>::update(int iddata)
+template<class Data>
+void List<Data>::Input()
 {
-    node *p = search(iddata);
-    data s;
-    cout << "\tnhap thong tin cap nhat cho ID " << iddata << ": " << endl;
-    cin >> s;
-    p->set_info(s);
+	int i = 1;
+	Data s;
+	do
+	{
+		cout <<setw(20)<<"----------THEM Data---------" << endl;
+		s.Input();
+		if (i != 0)
+			Insert(s);
+		cout << "Tiep tuc? (1.Yes 0.No): ";
+		cin >> i;
+		cout<<endl;
+	} while (i != 0); //nhap 0 de ket thuc
+
+}
+template<class Data>
+void List<Data>::Show()
+{
+	Node<Data> *P = head;
+	cout<<setw(20)<<"ID"<<setw(20)<<"NameData"<<setw(20)<<"Prices"<<endl;
+	cout<<"--------------------------------------------------------------------------------------------------------------"<<endl;
+	while (P != tail->getRight())
+	{
+		P->getData().Output();
+		P = P->getRight();
+	}
+	cout << endl;
 }

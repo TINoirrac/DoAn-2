@@ -5,7 +5,7 @@ Staff::Staff()
 {
 }
 
-Staff::Staff(int IDStaff, string FullName, int Age, string Numberphone, float Salary)
+Staff::Staff(int IDStaff, string FullName, int Age, string Numberphone, string Salary)
 {
     this->IDStaff = IDStaff;
     this->FullName = FullName;
@@ -18,7 +18,7 @@ Staff::~Staff()
 {
 }
 
-int Staff::Get_IDStaff()
+int Staff::Get_ID()
 {
     return this->IDStaff;
 }
@@ -28,29 +28,50 @@ void Staff::Set_IDStaff(int IDStaff)
 }
 void Staff::Input()
 {
-
-    cout << "Nhap ma nhan vien : ";
+    cout << "ID : ";
     cin >> this->IDStaff;
-    cout << "Nhap ho va ten nhan vien : ";
+    cout << "FullName : ";
     fflush(stdin);
     getline(cin, this->FullName);
-    cout << "Nhap tuoi cua nhan vien : ";
+    cout << "Age : ";
     cin >> this->Age;
-    cout << "Nhap so dien thoai cua nhan vien : ";
+    cout << "Phone : ";
     fflush(stdin);
     getline(cin, this->Numberphone);
-    cout << "Nhap luong cua nhan vien : ";
-    cin >> this->Salary;
+    cout << "Salary: ";
+    fflush(stdin);
+    getline(cin, this->Salary);
+    cout<<endl;
 }
-
 void Staff::Output()
 {
-    cout << "----------Thong tin nhan vien----------" << endl;
-    cout << "Ma : " << this->IDStaff << endl;
-    cout << "Ho va ten : " << this->FullName << endl;
-    cout << "Tuoi : " << this->Age << endl;
-    cout << "So dien thoai : " << this->Numberphone << endl;
-    cout << "Luong : " << this->Salary << endl;
+    cout<<setw(20)<<this->IDStaff<<setw(20)
+    <<this->FullName<<setw(20)<<this->Age<<setw(20)
+    <<this->Numberphone<<setw(20)<<this->Salary<<endl;
+}
+
+
+istream& operator>>(istream& in,Staff& s)
+{
+    cout << "ID : ";
+    in >> s.IDStaff;
+    cout << "FullName : ";
+    in>>s.FullName;
+    cout << "Age : ";
+    in >> s.Age;
+    cout << "Phone : ";
+    in>>s.Numberphone;
+    cout << "Salary: ";
+    in>>s.Salary;
+    cout<<endl;
+
+}
+ostream& operator<<(ostream& out,const Staff& s)
+{
+    out<<setw(20)<<s.IDStaff<<setw(20)
+    <<s.FullName<<setw(20)<<s.Age<<setw(20)
+    <<s.Numberphone<<setw(20)<<s.Salary<<endl;
+    return out;
 }
 
 bool Staff::operator!=(Staff &s)

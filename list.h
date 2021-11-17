@@ -1,18 +1,17 @@
-#include "node.cpp"
-#include <iostream>
-using namespace std;
-template <class data>
-class list
+#include "Node.cpp"
+template<class Data>
+class List
 {
-    node<data> *head;
-    node<data> *tail;
+    Node<Data> *head;
+    Node<Data> *tail;
 
 public:
-    list();
-    void input();
-    void output();
-    void inserttail(data);
-    node<data> *search(int);
-    void deletenode(int);
-    void update(int);
-};
+    List();
+    int isEmpty();
+    void Input();
+    void Show();
+    void Insert(Data);
+    Node<Data> *Search(int); 
+    void Delete_Node(int); 
+    void Update(int);
+}; 

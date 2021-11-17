@@ -8,15 +8,17 @@ protected:
     string FullName;
     int Age;
     string Numberphone;
-    float Salary;
+    string Salary;
 
 public:
     Staff();
-    Staff(int, string, int, string, float);
+    Staff(int, string, int, string, string);
     ~Staff();
-    int Get_IDStaff();
+    int Get_ID();
     void Set_IDStaff(int);
     void Input();
     void Output();
+    friend ostream& operator<<(ostream&, const Staff& s);
+    friend istream& operator>>(istream&,Staff& s);
     bool operator!=(Staff &s);
 };

@@ -1,14 +1,19 @@
+#pragma once
 #include <iostream>
+#include"FoodCategory.h"
 using namespace std;
-class Food
+class Food 
 {
     private:
-        int ID, IDCategory;
+        int ID;
         string NameFood;
-        float price;
+        string Prices;
     public:
-        Food();
+        Food(int = 0 , string =" ",string = " ");
         ~Food();
-        void Set();
-        void Get(); 
+        void Input();
+        void Output(); 
+        int Get_ID();
+        friend ostream& operator<<(ostream& ,const Food& f);
+        friend istream& operator>>(istream&,Food& f );
 };

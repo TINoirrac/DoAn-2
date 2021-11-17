@@ -1,45 +1,45 @@
-#include "node.h"
-template <class data>
-node<data>::node(data info)
+#include "Node.h"
+template <class Data>
+Node<Data>::Node(Data info)
 {
     this->info = info;
-    this->next = NULL;
-    this->prev = NULL;
+    this->right = NULL;
+    this->left = NULL;
 }
-template <class data>
-node<data>::node(data info, node *next, node *prev)
+template <class Data>
+Node<Data>::Node(Data info, Node *right, Node *left)
 {
     this->info = info;
-    this->next = next;
-    this->prev = prev;
+    this->right = right;
+    this->left = left;
 }
-template <class data>
-data node<data>::get_info()
+template <class Data>
+Data Node<Data>::getData()
 {
     return this->info;
 }
-template <class data>
-void node<data>::set_info(data s)
+template <class Data>
+void Node<Data>::setData(Data s)
 {
     this->info = s;
 }
-template <class data>
-node<data> *node<data>::get_next()
+template <class Data>
+Node<Data> *Node<Data>::getRight()
 {
-    return this->next;
+    return this->right;
 }
-template <class data>
-void node<data>::set_next(node *next)
+template <class Data>
+void Node<Data>::setRight(Node *right)
 {
-    this->next = next;
+    this->right = right;
 }
-template <class data>
-node<data> *node<data>::get_prev()
+template <class Data>
+Node<Data> *Node<Data>::getLeft()
 {
-    return this->prev;
+    return this->left;
 }
-template <class data>
-void node<data>::set_prev(node *prev)
+template <class Data>
+void Node<Data>::setLeft(Node *left)
 {
-    this->prev = prev;
+    this->left = left;
 }

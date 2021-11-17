@@ -1,33 +1,51 @@
 #include "Food.h"
-#include <iostream>
-using namespace std;
-
-Food::Food()
+#include<iomanip>
+#include <string>
+Food::Food(int ID , string NameFood, string Prices)
 {
-    this->NameFood   = "";
-	this->ID         = 0;
-	this->IDCategory = 0;
-	this->price      = 0;
+	this->ID         = ID;
+    this->NameFood   = NameFood;
+	this->Prices      = Prices;
     
 }
 Food::~Food()
 {
-    this->NameFood   = "";
-	this->ID         = 0;
-	this->IDCategory = 0;
-	this->price      = 0;
 }
-void Food::Set()
+int Food::Get_ID()
 {
-    cout << "Nhap ten thuc an: "; getline(cin, this->NameFood);
-	cout << "Nhap ID: ";cin >> this->ID;
-	cout << "Nhap ID Category: ";cin >> this->IDCategory;
-    cout << "Nhap gia tien: ";cin >> this->price;   
+	return this->ID;
 }
-void Food::Get()
+istream& operator>>(istream& in,Food& f)
 {
-    cout << "Ten thuc an: " << this->NameFood << endl;
-	cout << "ID: " << this->ID << endl;
-	cout << "ID Category: " << this->IDCategory << endl;
-	cout << "Gia tien: " << this->price << endl;
+	cout << "ID: ";
+	in>>f.ID;
+    cout << "FoodCategory Name : ";
+	in>>f.NameFood;
+    cout << "Prices : ";
+	in>>f.Prices;
+	cout<<endl;
+	return in;
 }
+ostream& operator<<(ostream& out, const Food& f)
+{
+	out<<setw(20)<<f.ID<<setw(20)<<
+	f.NameFood<<setw(20)<<f.Prices<<endl;
+	return out;
+}
+
+void Food::Input()
+{
+    cout << "ID : ";
+    cin >> this->ID;
+    cout << "Food's Name: ";
+    fflush(stdin);
+    getline(cin, this->NameFood);
+    cout << "Price : ";
+    cin >> this->Prices;
+}
+void Food::Output()
+{
+    cout<<setw(20)<<this->ID<<setw(20)
+    <<this->NameFood<<setw(20)<<this->Prices<<setw(20)<<endl;
+}
+
