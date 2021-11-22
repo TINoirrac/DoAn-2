@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include<string>
 using namespace std;
 class Staff
 {
@@ -20,5 +21,6 @@ public:
     void Output();
     friend ostream& operator<<(ostream&, const Staff& s);
     friend istream& operator>>(istream&,Staff& s);
+    void operator=(Staff& s);
     bool operator!=(Staff &s);
 };

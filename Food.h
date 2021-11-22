@@ -1,15 +1,15 @@
 #pragma once
 #include <iostream>
-#include"FoodCategory.h"
+#include<string>
 using namespace std;
 class Food 
 {
     private:
         int ID;
         string NameFood;
-        string Prices;
+        float Price;
     public:
-        Food(int = 0 , string =" ",string = " ");
+        Food(int = 0 , string =" ",float= 0);
         ~Food();
         void Input();
         void Output(); 

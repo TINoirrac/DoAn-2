@@ -14,4 +14,5 @@ public:
     Node<Data> *Search(int); 
     void Delete_Node(int); 
     void Update(int);
+    // void SortList();
 }; 

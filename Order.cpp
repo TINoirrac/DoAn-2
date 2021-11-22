@@ -15,6 +15,11 @@ Order::Order(const Order &o)
     this->datecheckin = o.datecheckin;
     this->datecheckout = o.datecheckout;
 }
+
+int Order::Get_ID()
+{
+    return this->IDOrder;
+}
 Order::~Order() {}
 ostream &operator<<(ostream &cout, const Order &o)
 {

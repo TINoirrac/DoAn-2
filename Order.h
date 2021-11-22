@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Food.h"
 #include "list.cpp"
+#include<string>
 using namespace std;
 class Order
 {

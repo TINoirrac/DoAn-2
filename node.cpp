@@ -43,3 +43,8 @@ void Node<Data>::setLeft(Node *left)
 {
     this->left = left;
 }
+// template <class Data>
+// void Node<Data>::operator=(Node *p)
+// {
+//     this->getData() = p->getData();
+// }

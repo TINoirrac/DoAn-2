@@ -19,5 +19,6 @@ public:
     Data getData();
     Node *getLeft();
     Node *getRight();
+    // void operator=(Node*);
     // Node *makeNode(Data s); //tao 1 Node chua thong tin la s
 };

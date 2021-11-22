@@ -18,11 +18,11 @@ class Menu{
 	{
 		cout << "----------------------------------------" << endl;
 		cout << "|                  MENU                 |" << endl;
-		cout << "|  1. Thao tac voi thong tin nhan vien  |" << endl;
-		cout << "|  2. Thong tin dat ban                 |" << endl;
-		cout << "|  3. Thong tin thuc don                |" << endl;
-		cout << "|  4. Thong tin hoa don                 |" << endl;
-		cout << "|  0. Ket thuc                          |" << endl;
+		cout << "|  1. Quan ly thong tin nhan vien       |" << endl;
+		cout << "|  2. Quan ly thuc don                  |" << endl;
+		cout << "|  3. Quan ly dat hang                  |" << endl;
+		cout << "|  4. Quan ly hoa don                   |" << endl;
+		cout << "|  5. Ket thuc                          |" << endl;
 		cout << "----------------------------------------" << endl;
 		cout << "Hay nhap lua chon: ";
 	}
@@ -35,27 +35,36 @@ class Menu{
 		cout << "|  3. Xoa 1 nhan vien theo ma nhan vien                     |" << endl;
 		cout << "|  4. Cap nhat thong tin cua nhan vien theo ma nhan vien    |" << endl;
 		cout << "|  5. Tim kiem thong tin cua nhan vien theo ma nhan vien    |" << endl;
+		cout << "|  6. Sap xep thong tin cua nhan vien theo ma nhan vien     |" << endl;
 		cout << "|  0. Quay lai menu truoc                                   |" << endl;
 		cout << "-------------------------------------------------------------" << endl;
 		cout << "Hay nhap lua chon: ";
 	}
-    void printMenuFoodCategory()
+    void printMenuFood()
 	{
 		cout << "-------------------------------------------------------------" << endl;
-		cout << "|                       MENU THUC DON                       |" << endl;
-		cout << "|  1. Xem danh sach tat ca cac mon an                       |" << endl;
-		cout << "|  2. Tim kiem thong tin cua theo ma mon an               |" << endl;
-		cout << "|  0. Quay lai menu truoc                                   |" << endl;
+		cout << "|                       MENU FOOD                            |" << endl;
+		cout << "|  1. Xem danh sach tat ca cac thuc don                      |" << endl;
+		cout << "|  2. Them 1 thuc don vao cuoi danh sach                     |" << endl;
+		cout << "|  3. Xoa 1 thuc don theo ma thuc don                        |" << endl;
+		cout << "|  4. Cap nhat thong tin cua thuc don theo ma thuc don       |" << endl;
+		cout << "|  5. Tim kiem thong tin cua thuc don theo ma thuc don       |" << endl;
+		cout << "|  6. Sap xep thong tin cua thuc don theo ma thuc don        |" << endl;
+		cout << "|  0. Quay lai menu truoc                                    |" << endl;
 		cout << "-------------------------------------------------------------" << endl;
 		cout << "Hay nhap lua chon: ";
 	}
-   void printMenuSchedule()
+   void printMenuOrder()
 	{
-		cout << "-------------------------------------------------------------" << endl;
-		cout << "|                      MENU SCHEDULE                        |" << endl;
-		cout << "|  1. Xem trang thai tat ca cac ban                         |" << endl;
-		cout << "|  2. Tim kiem thong tin theo ma ban                        |" << endl;
-		cout << "|  0. Quay lai menu truoc                                   |" << endl;
+			cout << "-------------------------------------------------------------" << endl;
+		cout << "|                       MENU ORDER                              |" << endl;
+		cout << "|  1. Xem danh sach tat ca cac don dat hang                     |" << endl;
+		cout << "|  2. Them 1 don dat hangvao cuoi danh sach                     |" << endl;
+		cout << "|  3. Xoa 1 don dat hangtheo ma don dat hang                    |" << endl;
+		cout << "|  4. Cap nhat thong tin cua don dat hangtheo ma don dat hang   |" << endl;
+		cout << "|  5. Tim kiem thong tin cua don dat hangtheo ma don dat hang   |" << endl;
+		cout << "|  6. Sap xep thong tin cua don dat hangtheo ma don dat hang    |" << endl;
+		cout << "|  0. Quay lai menu truoc                                       |" << endl;
 		cout << "-------------------------------------------------------------" << endl;
 		cout << "Hay nhap lua chon: ";
 	}

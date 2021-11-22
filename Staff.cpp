@@ -56,7 +56,8 @@ istream& operator>>(istream& in,Staff& s)
     cout << "ID : ";
     in >> s.IDStaff;
     cout << "FullName : ";
-    in>>s.FullName;
+    fflush(stdin);
+    getline(in,s.FullName);
     cout << "Age : ";
     in >> s.Age;
     cout << "Phone : ";
@@ -81,4 +82,13 @@ bool Staff::operator!=(Staff &s)
         return true;
     }
     return false;
+}
+
+void Staff::operator=(Staff& s)
+{
+    this->IDStaff = s.IDStaff;
+    this->FullName = s.FullName;
+    this->Age = s.Age;
+    this->Numberphone = s.Numberphone;
+    this->Salary = s. Salary;
 }

@@ -40,7 +40,7 @@ Node<Data> *List<Data>::Search(int IDData)
 	}
 	if (P != NULL)
 	{
-		P->getData().Output(); //tra ve vi tri tim thay
+		cout<<P->getData(); //tra ve vi tri tim thay
 	}
 	else
 		cout << "KHONG TIM THAY! "; //khong tim thay
@@ -65,8 +65,8 @@ void List<Data>::Update(int IDData)
 {
 	Node<Data> *P = Search(IDData);
 	Data s;
-	cout << "\n\t----------CAP NHAT THONG TIN Data----------"<< endl;
-	s.Input();
+	cout << "\n\t----------CAP NHAT THONG TIN DATA----------"<< endl;
+	cin>>s;
 	P->setData(s);
 }
 template<class Data>
@@ -76,8 +76,8 @@ void List<Data>::Input()
 	Data s;
 	do
 	{
-		cout <<setw(20)<<"----------THEM Data---------" << endl;
-		s.Input();
+		cout <<setw(20)<<"----------THEM DATA---------" << endl;
+		cin>>s;
 		if (i != 0)
 			Insert(s);
 		cout << "Tiep tuc? (1.Yes 0.No): ";
@@ -90,12 +90,32 @@ template<class Data>
 void List<Data>::Show()
 {
 	Node<Data> *P = head;
-	cout<<setw(20)<<"ID"<<setw(20)<<"NameData"<<setw(20)<<"Prices"<<endl;
 	cout<<"--------------------------------------------------------------------------------------------------------------"<<endl;
 	while (P != tail->getRight())
 	{
-		P->getData().Output();
+		cout<<P->getData();
 		P = P->getRight();
 	}
 	cout << endl;
 }
+
+
+// template<class Data>
+// void List<Data>::SortList()
+// {
+// 	Node<Data> *P = head;
+// 	int min = P->getData().Get_ID();
+// 	while (P != tail->getRight())
+// 	{
+// 		// cout<<P->getData();
+// 		P = P->getRight();
+// 		if(P->getData().Get_ID() < min)
+// 		{
+// 			P.s
+// 		}
+// 	}
+// 	cout << endl;
+// }
+
+
+// g++  List.cpp Staff.cpp Food.cpp FoodCategory.cpp main.cpp -o demo
