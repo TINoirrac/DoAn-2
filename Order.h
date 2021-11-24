@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Food.h"
 #include "list.cpp"
-#include<string>
+#include <string>
 using namespace std;
 class Order
 {
@@ -23,7 +23,8 @@ public:
     void Set_IDOrder(int);
     float get_total();
     void set_total(float);
-    void loadfoodmenu(List<Food> &);
-    void select_food(List<Food> *);
-    friend class Food;
+    void select_food(List<Food>);
+    void output();
+    void input();
+    //friend class Food;
 };

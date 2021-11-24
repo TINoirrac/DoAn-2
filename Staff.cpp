@@ -41,37 +41,36 @@ void Staff::Input()
     cout << "Salary: ";
     fflush(stdin);
     getline(cin, this->Salary);
-    cout<<endl;
+    cout << endl;
 }
 void Staff::Output()
 {
-    cout<<setw(20)<<this->IDStaff<<setw(20)
-    <<this->FullName<<setw(20)<<this->Age<<setw(20)
-    <<this->Numberphone<<setw(20)<<this->Salary<<endl;
+    cout << setw(20) << this->IDStaff << setw(20)
+         << this->FullName << setw(20) << this->Age << setw(20)
+         << this->Numberphone << setw(20) << this->Salary << endl;
 }
 
-
-istream& operator>>(istream& in,Staff& s)
+istream &operator>>(istream &in, Staff &s)
 {
     cout << "ID : ";
     in >> s.IDStaff;
     cout << "FullName : ";
     fflush(stdin);
-    getline(in,s.FullName);
+    getline(in, s.FullName);
     cout << "Age : ";
     in >> s.Age;
     cout << "Phone : ";
-    in>>s.Numberphone;
+    in >> s.Numberphone;
     cout << "Salary: ";
-    in>>s.Salary;
-    cout<<endl;
-
+    in >> s.Salary;
+    cout << endl;
+    return in;
 }
-ostream& operator<<(ostream& out,const Staff& s)
+ostream &operator<<(ostream &out, const Staff &s)
 {
-    out<<setw(20)<<s.IDStaff<<setw(20)
-    <<s.FullName<<setw(20)<<s.Age<<setw(20)
-    <<s.Numberphone<<setw(20)<<s.Salary<<endl;
+    out << setw(20) << s.IDStaff << setw(20)
+        << s.FullName << setw(20) << s.Age << setw(20)
+        << s.Numberphone << setw(20) << s.Salary << endl;
     return out;
 }
 
@@ -84,11 +83,11 @@ bool Staff::operator!=(Staff &s)
     return false;
 }
 
-void Staff::operator=(Staff& s)
+void Staff::operator=(Staff &s)
 {
     this->IDStaff = s.IDStaff;
     this->FullName = s.FullName;
     this->Age = s.Age;
     this->Numberphone = s.Numberphone;
-    this->Salary = s. Salary;
+    this->Salary = s.Salary;
 }
