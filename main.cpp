@@ -3,7 +3,7 @@
 #include"Menu.h"
 #include<fstream>
 #include"Staff.h"
-#include"Order.h"
+#include"Orderman.h"
 using namespace std;
 // g++  List.cpp Staff.cpp Food.cpp  Order.cpp main.cpp -o demo
 int main()
@@ -20,6 +20,7 @@ int main()
        List<Staff> l_Staff ;
        List<Food> l_Food;
        List<Order> l_Order;
+       Orderman L_O;
    do{
        m.printMenu();
        cin>>choice;
@@ -107,44 +108,45 @@ int main()
               }while(choice_Food!=0);
                      break;
        //FOOD
-               case 3:
-              do{
-                     m.printMenuOrder();
-                     cin>>choice_Order;
-                     switch (choice_Order)
-                                   {
-                                   case 1:
-                                          cout<<"\tTHONG TIN DON DAT HANG"<<endl;
-                                          cout <<setw(20)<<"ID"<<setw(20)<<"FullName"<<setw(20)<<"Age"<<setw(20)<<"Phone"<<setw(20)<<"Salary"<<endl;
-                                          l_Order.Show();
-                                          break;
-                                   case 2:
-                                          cout<<"\tNHAP THONG TIN DON DAT HANG"<<endl;
-                                          l_Order.Input();
-                                          break;
-                                   case 3:
-                                          cout<<"\tXOA THONG TIN DON DAT HANG THEO ID"<<endl;
-                                          cout<<"Nhap ID DON DAT HANG can xoa : ";
-                                          cin>>ID_Order;
-                                          l_Order.Delete_Node(ID_Order);
-                                          break;
-                                   case 4:
-                                          cout<<"\tCAP NHAT THONG TIN DON DAT HANG THEO MA ID"<<endl;
-                                          cout<<"Nhap ID DON DAT HANG can cap nhat : ";
-                                          cin>>ID_Order;
-                                          l_Order.Update(ID_Order);
-                                          break;
-                                   case 5:
-                                          cout<<"\tTIM KIEM THONG TIN DON DAT HANG THEO MA DON DAT HANG"<<endl;
-                                          cout<<"Nhap ID DON DAT HANG can tim kiem : ";
-                                          cin>>ID_Order;
-                                          l_Order.Search(ID_Order);
-                                          break;
-                               
-                                   default:
+              case 3:
+                     do
+                     {
+                            m.printMenuOrder();
+                            cin >> choice_Order;
+                            switch (choice_Order)
+                            {
+                            case 1:
+                                   cout << "\tTHONG TIN DON DAT HANG" << endl;
+                                   cout << setw(20) << "ID" << setw(20) << "FullName" << setw(20) << "Age" << setw(20) << "Phone" << setw(20) << "Salary" << endl;
+                                   L_O.output();
                                    break;
-                                   }
-              }while(choice_Order!=0);
+                            case 2:
+                                   cout << "\tNHAP THONG TIN DON DAT HANG" << endl;
+                                   L_O.loadmenu(l_Food);
+                                   L_O.input();
+                                   break;
+                            case 3:
+                                   cout << "\tXOA THONG TIN DON DAT HANG THEO ID" << endl;
+                                   cout << "Nhap ID DON DAT HANG can xoa : ";
+                                   cin >> ID_Order;
+                                   l_Order.Delete_Node(ID_Order);
+                                   break;
+                            case 4:
+                                   cout << "\tCAP NHAT THONG TIN DON DAT HANG THEO MA ID" << endl;
+                                   cout << "Nhap ID DON DAT HANG can cap nhat : ";
+                                   cin >> ID_Order;
+                                   l_Order.Update(ID_Order);
+                                   break;
+                            case 5:
+                                   cout << "\tTIM KIEM THONG TIN DON DAT HANG THEO MA DON DAT HANG" << endl;
+                                   cout << "Nhap ID DON DAT HANG can tim kiem : ";
+                                   cin >> ID_Order;
+                                   l_Order.Search(ID_Order);
+                                   break;
+                            default:
+                                   break;
+                            }
+                     } while (choice_Order != 0);
                      break;
        }
    }while(choice !=0);
