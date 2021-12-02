@@ -1,15 +1,19 @@
 #include <iostream>
 #include<iomanip>
 #include"Menu.h"
+#include<fstream>
 #include"Staff.h"
 #include"Order.h"
 using namespace std;
 // g++  List.cpp Staff.cpp Food.cpp  Order.cpp main.cpp -o demo
 int main()
 {
+       
+       fstream Staff_file;
+       Staff_file.open("E:\\CNTT3\\QuanLyCafe\\Staff.txt");
 
-   Menu m;
-        m.printTitle();
+       Menu m;
+       m.printTitle();
        int choice;
        int choice__Staff,choice_Food,choice_Order;
        int ID_Staff,ID_Food,ID_Order;
@@ -28,13 +32,13 @@ int main()
                      switch (choice__Staff)
                                    {
                                    case 1:
+                                         cout<<"\tNHAP THONG TIN NHAN VIEN"<<endl;
+                                          l_Staff.Input();
+                                          break;
+                                   case 2:       
                                           cout<<"\tTHONG TIN NHAN VIEN"<<endl;
                                           cout <<setw(20)<<"ID"<<setw(20)<<"FullName"<<setw(20)<<"Age"<<setw(20)<<"Phone"<<setw(20)<<"Salary"<<endl;
                                           l_Staff.Show();
-                                          break;
-                                   case 2:
-                                          cout<<"\tNHAP THONG TIN NHAN VIEN"<<endl;
-                                          l_Staff.Input();
                                           break;
                                    case 3:
                                           cout<<"\tXOA THONG TIN NHAN VIEN THEO ID"<<endl;
@@ -54,10 +58,9 @@ int main()
                                           cin>>ID_Staff;
                                           l_Staff.Search(ID_Staff);
                                           break;
-                                   // case 6:
-                                   //        cout<<"\tSAP XEP THONG TIN CUA NHAN VIEN THEO ID"<<endl;
-                                   //        l_Staff.SortList();
-                                   //        break;
+                                   case 6:
+                                          l_Staff.Show_file();
+                                          break;
                                    default:
                                    break;
                                    }
@@ -136,6 +139,7 @@ int main()
                                           cin>>ID_Order;
                                           l_Order.Search(ID_Order);
                                           break;
+                               
                                    default:
                                    break;
                                    }

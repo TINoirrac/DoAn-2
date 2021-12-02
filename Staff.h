@@ -12,8 +12,7 @@ protected:
     string Salary;
 
 public:
-    Staff();
-    Staff(int, string, int, string, string);
+    Staff(int = 0, string = "", int = 0, string = "", string = "");
     ~Staff();
     int Get_ID();
     void Set_IDStaff(int);
@@ -21,6 +20,6 @@ public:
     void Output();
     friend ostream& operator<<(ostream&, const Staff& s);
     friend istream& operator>>(istream&,Staff& s);
-    void operator=(Staff& s);
+    // void operator=(Staff& s);
     bool operator!=(Staff &s);
 };
