@@ -42,9 +42,9 @@ void Order::select_food(List<Food> l_menu)
     int i = 1, n, IDFood;
     do
     {
-        cout << "nhap ID mon: ";
+        cout << "Nhap ID mon: ";
         cin >> IDFood;
-        cout << "nhap so luong: ";
+        cout << "Bhap so luong: ";
         cin >> n;
         Node<Food> *temp = l_menu.Search(IDFood);
         this->l_food.Insert(temp->getData());
