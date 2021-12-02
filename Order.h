@@ -2,6 +2,7 @@
 #include "Food.h"
 #include "list.cpp"
 #include <string>
+#include "date.h"
 using namespace std;
 class Order
 {
@@ -9,8 +10,8 @@ class Order
     int quantity;
     List<Food> l_food;
     float total;
-    string datecheckin;
-    string datecheckout;
+    date datecheckin;
+    date datecheckout;
 
 public:
     Order();
@@ -26,5 +27,5 @@ public:
     void select_food(List<Food>);
     void output();
     void input();
-    //friend class Food;
+    // friend class Food;
 };
