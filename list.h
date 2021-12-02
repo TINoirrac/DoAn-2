@@ -17,10 +17,5 @@ public:
     Node<Data> *Search(int);
     void Delete_Node(int);
     void Update(int);
-<<<<<<< HEAD
     void SortList();
 }; 
-=======
-    // void SortList();
-};
->>>>>>> c7f576e8eb916ee8fe4daddd578b1554837c02a2
