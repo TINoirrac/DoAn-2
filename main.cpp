@@ -1,113 +1,116 @@
 #include <iostream>
-#include<iomanip>
-#include"Menu.h"
-#include<fstream>
-#include"Staff.h"
-#include"Orderman.h"
+#include <iomanip>
+#include "Menu.h"
+#include <fstream>
+#include "Staff.h"
+#include "Orderman.h"
 using namespace std;
 // g++  List.cpp Staff.cpp Food.cpp  Order.cpp main.cpp -o demo
 int main()
 {
-       
+
        fstream Staff_file;
        Staff_file.open("E:\\CNTT3\\QuanLyCafe\\Staff.txt");
 
        Menu m;
        m.printTitle();
        int choice;
-       int choice__Staff,choice_Food,choice_Order;
-       int ID_Staff,ID_Food,ID_Order;
-       List<Staff> l_Staff ;
+       int choice__Staff, choice_Food, choice_Order;
+       int ID_Staff, ID_Food, ID_Order;
+       List<Staff> l_Staff;
        List<Food> l_Food;
        List<Order> l_Order;
        Orderman L_O;
-   do{
-       m.printMenu();
-       cin>>choice;
-       switch (choice)
+       do
        {
+              m.printMenu();
+              cin >> choice;
+              switch (choice)
+              {
               case 1:
-              do{
-                     m.printMenuStaff();
-                     cin>>choice__Staff;
-                     switch (choice__Staff)
-                                   {
-                                   case 1:
-                                         cout<<"\tNHAP THONG TIN NHAN VIEN"<<endl;
-                                          l_Staff.Input();
-                                          break;
-                                   case 2:       
-                                          cout<<"\tTHONG TIN NHAN VIEN"<<endl;
-                                          cout <<setw(20)<<"ID"<<setw(20)<<"FullName"<<setw(20)<<"Age"<<setw(20)<<"Phone"<<setw(20)<<"Salary"<<endl;
-                                          l_Staff.Show();
-                                          break;
-                                   case 3:
-                                          cout<<"\tXOA THONG TIN NHAN VIEN THEO ID"<<endl;
-                                          cout<<"Nhap ID nhan vien can xoa : ";
-                                          cin>>ID_Staff;
-                                          l_Staff.Delete_Node(ID_Staff);
-                                          break;
-                                   case 4:
-                                          cout<<"\tCAP NHAT THONG TIN NHAN VIEN THEO ID"<<endl;
-                                          cout<<"Nhap ID nhan vien can cap nhat : ";
-                                          cin>>ID_Staff;
-                                          l_Staff.Update(ID_Staff);
-                                          break;
-                                   case 5:
-                                          cout<<"\tTIM KIEM THONG TIN NHAN VIEN THEO ID"<<endl;
-                                          cout<<"Nhap ID nhan vien can tim kiem : ";
-                                          cin>>ID_Staff;
-                                          l_Staff.Search(ID_Staff);
-                                          break;
-                                   case 6:
-                                          Staff_file<<"\tDANH SACH THONG TIN NHAN VIEN"<<endl;
-                                          l_Staff.Show_file();
-                                          break;
-                                   default:
+                     do
+                     {
+                            m.printMenuStaff();
+                            cin >> choice__Staff;
+                            switch (choice__Staff)
+                            {
+                            case 1:
+                                   cout << "\tNHAP THONG TIN NHAN VIEN" << endl;
+                                   l_Staff.Input();
                                    break;
-                                   }
-              }while(choice__Staff!=0);
+                            case 2:
+                                   cout << "\tTHONG TIN NHAN VIEN" << endl;
+                                   cout << setw(20) << "ID" << setw(20) << "FullName" << setw(20) << "Age" << setw(20) << "Phone" << setw(20) << "Salary" << endl;
+                                   l_Staff.Show();
+                                   break;
+                            case 3:
+                                   cout << "\tXOA THONG TIN NHAN VIEN THEO ID" << endl;
+                                   cout << "Nhap ID nhan vien can xoa : ";
+                                   cin >> ID_Staff;
+                                   l_Staff.Delete_Node(ID_Staff);
+                                   break;
+                            case 4:
+                                   cout << "\tCAP NHAT THONG TIN NHAN VIEN THEO ID" << endl;
+                                   cout << "Nhap ID nhan vien can cap nhat : ";
+                                   cin >> ID_Staff;
+                                   l_Staff.Update(ID_Staff);
+                                   break;
+                            case 5:
+                                   cout << "\tTIM KIEM THONG TIN NHAN VIEN THEO ID" << endl;
+                                   cout << "Nhap ID nhan vien can tim kiem : ";
+                                   cin >> ID_Staff;
+                                   l_Staff.Search(ID_Staff);
+                                   break;
+                            case 6:
+                                   Staff_file << "\tDANH SACH THONG TIN NHAN VIEN" << endl;
+                                   l_Staff.Show_file();
+                                   break;
+                            default:
+                                   break;
+                            }
+                     } while (choice__Staff != 0);
                      break;
-       //THUC DON
+                     // THUC DON
               case 2:
-              do{
-                     m.printMenuFood();
-                     cin>>choice_Food;
-                     switch (choice_Food)
-                                   {
-                                   case 1:
-                                          cout<<"\tTHONG TIN THUC DON"<<endl;
-                                          cout <<setw(20)<<"ID choice_Foodgory"<<setw(20)<<"choice_Foodgory's Name"<<setw(20)<<endl;
-                                          l_Food.Show();
-                                          break;
-                                   case 2:
-                                          cout<<"\tNHAP THONG TIN THUC DON"<<endl;
-                                          l_Food.Input();
-                                          break;
-                                   case 3:
-                                          cout<<"\tXOA THONG TIN THUC DON THEO ID"<<endl;
-                                          cout<<"Nhap ID thuc don can xoa : ";
-                                          cin>>ID_Food;
-                                          l_Food.Delete_Node(ID_Food);
-                                          break;
-                                   case 4:
-                                          cout<<"\tCAP NHAT THONG TIN THUC DON THEO ID"<<endl;
-                                          cout<<"Nhap ID thuc don can cap nhat : ";
-                                          cin>>ID_Food;
-                                          l_Food.Update(ID_Food);
-                                          break;
-                                   case 5:
-                                          cout<<"\tTIM KIEM THONG TIN THUC DON THEO ID"<<endl;
-                                          cout<<"Nhap ID thuc don can tim kiem : ";
-                                          cin>>ID_Food;
-                                          l_Food.Search(ID_Food);
-                                          break;
-                                   default:
+                     do
+                     {
+                            m.printMenuFood();
+                            cin >> choice_Food;
+                            switch (choice_Food)
+                            {
+                            case 1:
+                                   cout << "\tTHONG TIN THUC DON" << endl;
+                                   cout << setw(20) << "ID choice_Foodgory" << setw(20) << "choice_Foodgory's Name" << setw(20) << endl;
+                                   l_Food.Show();
                                    break;
-                                   }
-              }while(choice_Food!=0);
+                            case 2:
+                                   cout << "\tNHAP THONG TIN THUC DON" << endl;
+                                   l_Food.Input();
+                                   break;
+                            case 3:
+                                   cout << "\tXOA THONG TIN THUC DON THEO ID" << endl;
+                                   cout << "Nhap ID thuc don can xoa : ";
+                                   cin >> ID_Food;
+                                   l_Food.Delete_Node(ID_Food);
+                                   break;
+                            case 4:
+                                   cout << "\tCAP NHAT THONG TIN THUC DON THEO ID" << endl;
+                                   cout << "Nhap ID thuc don can cap nhat : ";
+                                   cin >> ID_Food;
+                                   l_Food.Update(ID_Food);
+                                   break;
+                            case 5:
+                                   cout << "\tTIM KIEM THONG TIN THUC DON THEO ID" << endl;
+                                   cout << "Nhap ID thuc don can tim kiem : ";
+                                   cin >> ID_Food;
+                                   l_Food.Search(ID_Food);
+                                   break;
+                            default:
+                                   break;
+                            }
+                     } while (choice_Food != 0);
                      break;
-       //FOOD
+                     // FOOD
               case 3:
                      do
                      {
@@ -148,6 +151,6 @@ int main()
                             }
                      } while (choice_Order != 0);
                      break;
-       }
-   }while(choice !=0);
+              }
+       } while (choice != 0);
 }

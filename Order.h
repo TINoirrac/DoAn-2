@@ -15,7 +15,7 @@ class Order
 
 public:
     Order();
-    Order(int, int, float, string, string);
+    Order(int, int, float, date, date);
     Order(const Order &);
     ~Order();
     friend ostream &operator<<(ostream &, const Order &);
