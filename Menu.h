@@ -30,12 +30,12 @@ class Menu{
 	{
 		cout << "-------------------------------------------------------------" << endl;
 		cout << "|                       MENU STAFF                          |" << endl;
-		cout << "|  1. Xem danh sach tat ca cac nhan vien                    |" << endl;
-		cout << "|  2. Them 1 nhan vien vao cuoi danh sach                   |" << endl;
+		cout << "|  1. Them 1 nhan vien vao cuoi danh sach                   |" << endl;
+		cout << "|  2. Xem danh sach thong tin nhan vien                     |" << endl;
 		cout << "|  3. Xoa 1 nhan vien theo ma nhan vien                     |" << endl;
 		cout << "|  4. Cap nhat thong tin cua nhan vien theo ma nhan vien    |" << endl;
 		cout << "|  5. Tim kiem thong tin cua nhan vien theo ma nhan vien    |" << endl;
-		cout << "|  6. Sap xep thong tin cua nhan vien theo ma nhan vien     |" << endl;
+		cout << "|  6. Xuat danh sach thong tin nhan vien ra FILE            |" << endl;
 		cout << "|  0. Quay lai menu truoc                                   |" << endl;
 		cout << "-------------------------------------------------------------" << endl;
 		cout << "Hay nhap lua chon: ";
