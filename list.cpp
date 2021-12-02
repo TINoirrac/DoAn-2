@@ -108,7 +108,7 @@ void List<Data>::Show_file()
 	fstream Show_File;
 	Show_File.open("E:\\CNTT3\\QuanLyCafe\\Staff.txt");
 	Node<Data> *P = head;
-    Show_File <<setw(20)<<"\tDANH SACH THONG TIN NHAN VIEN\n"<<endl;
+    Show_File <<setw(20)<<"DANH SACH THONG TIN NHAN VIEN"<<endl;
     Show_File <<setw(20)<<"ID"<<setw(20)<<"FullName"<<setw(20)<<"Age"<<setw(20)<<"Phone"<<setw(20)<<"Salary"<<endl;
 	Show_File<<"--------------------------------------------------------------------------------------------------------------"<<endl;
 	while (P != tail->getRight())
