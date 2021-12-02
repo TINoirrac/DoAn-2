@@ -15,29 +15,30 @@ Order::Order(const Order &o)
     this->datecheckin = o.datecheckin;
     this->datecheckout = o.datecheckout;
 }
-
+Order::~Order() {}
 int Order::Get_ID()
 {
     return this->IDOrder;
 }
-Order::~Order() {}
+void Order::Set_IDOrder(int IDOrder)
+{
+    this->IDOrder = IDOrder;
+}
 ostream &operator<<(ostream &cout, const Order &o)
 {
     cout << "IDFood: " << o.IDOrder << endl;
     cout << "Cac mon da chon:" << endl;
+    return cout;
 }
 istream &operator>>(istream &cin, Order &o)
 {
     cout << "IDFood: ";
     cin >> o.IDOrder;
+    return cin;
 }
-void Order::loadfoodmenu(List<Food> &l_menu)
+void Order::select_food(List<Food> l_menu)
 {
     l_menu.Show();
-}
-void Order::select_food(List<Food> *l_menu)
-{
-    l_menu->Show();
     int i = 1, n, IDFood;
     do
     {
@@ -45,9 +46,13 @@ void Order::select_food(List<Food> *l_menu)
         cin >> IDFood;
         cout << "nhap so luong: ";
         cin >> n;
-        Node<Food> *temp = l_menu->Search(IDFood);
+        Node<Food> *temp = l_menu.Search(IDFood);
         this->l_food.Insert(temp->getData());
         cout << "Tiep tuc chon mon? (1.Yes 0.No): ";
         cin >> i;
-    } while (i = 1);
+    } while (i != 0);
+}
+void Order::output()
+{
+    this->l_food.Show();
 }
