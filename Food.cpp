@@ -1,52 +1,52 @@
 #include "Food.h"
-#include<iomanip>
+#include <iomanip>
 #include <string>
-Food::Food(int ID , string NameFood, float Prices)
+Food::Food(int ID, string NameFood, float Prices)
 {
-	this->ID         = ID;
-    this->NameFood   = NameFood;
-	this->Price      = Price;
-    
+    this->ID = ID;
+    this->NameFood = NameFood;
+    this->Price = Price;
 }
 Food::~Food()
 {
 }
 int Food::Get_ID()
 {
-	return this->ID;
+    return this->ID;
 }
-istream& operator>>(istream& in,Food& f)
+float Food::Get_Price()
 {
-	cout << "ID: ";
-	in>>f.ID;
+    return this->Price;
+}
+istream &operator>>(istream &in, Food &f)
+{
+    cout << "ID: ";
+    in >> f.ID;
     cout << "Food's Name : ";
-	fflush(stdin);
-    getline(in,f.NameFood);
+    fflush(stdin);
+    getline(in, f.NameFood);
     cout << "Price : ";
-	in>>f.Price;
-	cout<<endl;
-	return in;
+    in >> f.Price;
+    cout << endl;
+    return in;
 }
-ostream& operator<<(ostream& out, const Food& f)
+ostream &operator<<(ostream &out, const Food &f)
 {
-	out<<setw(20)<<f.ID<<setw(20)<<
-	f.NameFood<<setw(20)<<f.Price<<endl;
-	return out;
+    out << setw(20) << f.ID << setw(20) << f.NameFood << setw(20) << f.Price << endl;
+    return out;
 }
-
 void Food::Input()
 {
     cout << "ID : ";
     cin >> this->ID;
     cout << "Food's Name: ";
     fflush(stdin);
-    getline(cin,this->NameFood);
+    getline(cin, this->NameFood);
     cout << "Price : ";
     cin >> this->Price;
 }
 void Food::Output()
 {
-    cout<<setw(20)<<this->ID<<setw(20)
-    <<this->NameFood<<setw(20)<<this->Price<<setw(20)<<endl;
+    cout << setw(20) << this->ID << setw(20)
+         << this->NameFood << setw(20) << this->Price << setw(20) << endl;
 }
-

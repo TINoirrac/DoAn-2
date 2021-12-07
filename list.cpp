@@ -163,6 +163,18 @@ void List<Data>::Order_F()
 }
 
 
-
+template <class out>
+ostream &operator<<(ostream &cout, const List<out> &l)
+{
+    Node<out> *P = l.head;
+    cout << "--------------------------------------------------------------------------------------------------------------" << endl;
+    while (P != l.tail->getRight())
+    {
+        cout << P->getData();
+        P = P->getRight();
+    }
+    cout << endl;
+    return cout;
+}
 
 // g++  List.cpp Staff.cpp Food.cpp FoodCategory.cpp main.cpp -o demo
