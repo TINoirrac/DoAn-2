@@ -18,4 +18,6 @@ public:
     void Delete_Node(int);
     void Update(int);
     void SortList();
-}; 
+    template <class out>
+    friend ostream &operator<<(ostream &, const List<out> &);
+};

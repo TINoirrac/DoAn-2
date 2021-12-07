@@ -108,7 +108,19 @@ void List<Data>::Show()
 	}
 	cout << endl;
 }
-
+template <class out>
+ostream &operator<<(ostream &cout, const List<out> &l)
+{
+	Node<out> *P = l.head;
+	cout << "--------------------------------------------------------------------------------------------------------------" << endl;
+	while (P != l.tail->getRight())
+	{
+		cout << P->getData();
+		P = P->getRight();
+	}
+	cout << endl;
+	return cout;
+}
 template <class Data>
 void List<Data>::Show_file()
 {

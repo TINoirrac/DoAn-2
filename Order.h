@@ -25,7 +25,5 @@ public:
     float get_total();
     void set_total(float);
     void select_food(List<Food>);
-    void output();
-    void input();
-    // friend class Food;
+    friend class Food;
 };

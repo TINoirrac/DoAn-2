@@ -3,7 +3,7 @@
 #include "Menu.h"
 #include <fstream>
 #include "Staff.h"
-#include "Orderman.h"
+#include "Orderlist.h"
 using namespace std;
 // g++  List.cpp Staff.cpp Food.cpp  Order.cpp main.cpp -o demo
 int main()
@@ -11,7 +11,6 @@ int main()
 
        fstream Staff_file;
        Staff_file.open("E:\\CNTT3\\QuanLyCafe\\Staff.txt");
-
        Menu m;
        m.printTitle();
        int choice;
@@ -19,8 +18,7 @@ int main()
        int ID_Staff, ID_Food, ID_Order;
        List<Staff> l_Staff;
        List<Food> l_Food;
-       List<Order> l_Order;
-       Orderman L_O;
+       Orderlist l_Order;
        do
        {
               m.printMenu();
@@ -110,7 +108,7 @@ int main()
                             }
                      } while (choice_Food != 0);
                      break;
-                     // FOOD
+                     // ORDER
               case 3:
                      do
                      {
@@ -121,30 +119,30 @@ int main()
                             case 1:
                                    cout << "\tTHONG TIN DON DAT HANG" << endl;
                                    cout << setw(20) << "ID" << setw(20) << "FullName" << setw(20) << "Age" << setw(20) << "Phone" << setw(20) << "Salary" << endl;
-                                   L_O.output();
+                                   l_Order.output();
                                    break;
                             case 2:
+                                   l_Order.loadmenu(l_Food);
                                    cout << "\tNHAP THONG TIN DON DAT HANG" << endl;
-                                   L_O.loadmenu(l_Food);
-                                   L_O.input();
+                                   l_Order.input();
                                    break;
                             case 3:
                                    cout << "\tXOA THONG TIN DON DAT HANG THEO ID" << endl;
                                    cout << "Nhap ID DON DAT HANG can xoa : ";
                                    cin >> ID_Order;
-                                   l_Order.Delete_Node(ID_Order);
+                                   l_Order.delete_order(ID_Order);
                                    break;
                             case 4:
                                    cout << "\tCAP NHAT THONG TIN DON DAT HANG THEO MA ID" << endl;
                                    cout << "Nhap ID DON DAT HANG can cap nhat : ";
                                    cin >> ID_Order;
-                                   l_Order.Update(ID_Order);
+                                   l_Order.update_order(ID_Order);
                                    break;
                             case 5:
                                    cout << "\tTIM KIEM THONG TIN DON DAT HANG THEO MA DON DAT HANG" << endl;
                                    cout << "Nhap ID DON DAT HANG can tim kiem : ";
                                    cin >> ID_Order;
-                                   l_Order.Search(ID_Order);
+                                   l_Order.search_order(ID_Order);
                                    break;
                             default:
                                    break;

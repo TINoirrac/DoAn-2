@@ -28,6 +28,8 @@ ostream &operator<<(ostream &cout, const Order &o)
 {
     cout << "IDFood: " << o.IDOrder << endl;
     cout << "Cac mon da chon:" << endl;
+    cout << o.l_food << endl;
+    cout << "Tong gia:" << o.total << endl;
     return cout;
 }
 istream &operator>>(istream &cin, Order &o)
@@ -38,21 +40,16 @@ istream &operator>>(istream &cin, Order &o)
 }
 void Order::select_food(List<Food> l_menu)
 {
-    l_menu.Show();
     int i = 1, n, IDFood;
+    this->total = 0;
     do
     {
         cout << "Nhap ID mon: ";
         cin >> IDFood;
-        cout << "Bhap so luong: ";
-        cin >> n;
         Node<Food> *temp = l_menu.Search(IDFood);
+        total += temp->getData().Get_Price();
         this->l_food.Insert(temp->getData());
         cout << "Tiep tuc chon mon? (1.Yes 0.No): ";
         cin >> i;
     } while (i != 0);
-}
-void Order::output()
-{
-    this->l_food.Show();
 }

@@ -1,7 +1,7 @@
 #pragma once
-#include<iostream>
+#include <iostream>
 using namespace std;
-template<class Data>
+template <class Data>
 class Node
 {
 private:
