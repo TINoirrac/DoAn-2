@@ -46,6 +46,11 @@ void Order::select_food(List<Food> l_menu)
     {
         cout << "Nhap ID mon: ";
         cin >> IDFood;
+<<<<<<< HEAD
+=======
+        cout << "Nhap so luong: ";
+        cin >> n;
+>>>>>>> a15a8134eb8175a9e0b35193627c2bf888ccd980
         Node<Food> *temp = l_menu.Search(IDFood);
         total += temp->getData().Get_Price();
         this->l_food.Insert(temp->getData());
