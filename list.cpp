@@ -79,16 +79,7 @@ void List<Data>::Update(int IDData)
 	cin >> s;
 	P->setData(s);
 }
-template <class Data>
-Node<Data> *List<Data>::get_head()
-{
-	return this->head;
-}
-template <class Data>
-Node<Data> *List<Data>::get_tail()
-{
-	return this->tail;
-}
+
 template <class Data>
 void List<Data>::Input()
 {
