@@ -1,6 +1,5 @@
-DANH SACH THONG TIN NHAN VIEN
- 	DANH SACH THONG TIN NHAN VIEN
-ullName                 Age               Phone              Salary
+                  ID            FullName                 Age               Phone              Salary
 --------------------------------------------------------------------------------------------------------------
-                 123               Hoang                  20                2342               23423
-                 234                Quoc                  20              234242              234234
+                   1            Le Hoang                  20              234234               23423
+                   2            Duc Quoc                  20              234234              234234
+                   3           Nhat Quan                  20              234234                2342

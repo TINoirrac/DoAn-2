@@ -69,7 +69,16 @@ void List<Data>::Update(int IDData)
 	cout << "\n\t----------CAP NHAT THONG TIN DATA----------"<< endl;
 	cin>>s;
 	P->setData(s);
-
+}
+template <class Data>
+Node<Data> *List<Data>::get_head()
+{
+	return this->head;
+}
+template <class Data>
+Node<Data> *List<Data>::get_tail()
+{
+	return this->tail;
 }
 template<class Data>
 void List<Data>::Input()
@@ -103,57 +112,59 @@ void List<Data>::Show()
 }
 
 template<class Data>
-void List<Data>::Show_file()
+void List<Data>::Staff_F()
 {
-	fstream Show_File;
-	Show_File.open("E:\\CNTT3\\QuanLyCafe\\Staff.txt");
+	fstream Staff_file;
+	Staff_file.open("E:\\CNTT3\\QuanLyCafe\\Staff.txt");
+	Staff_file.clear();
+
 	Node<Data> *P = head;
-    Show_File <<setw(20)<<"DANH SACH THONG TIN NHAN VIEN"<<endl;
-    Show_File <<setw(20)<<"ID"<<setw(20)<<"FullName"<<setw(20)<<"Age"<<setw(20)<<"Phone"<<setw(20)<<"Salary"<<endl;
-	Show_File<<"--------------------------------------------------------------------------------------------------------------"<<endl;
+    Staff_file <<setw(20)<<"ID"<<setw(20)<<"FullName"<<setw(20)<<"Age"<<setw(20)<<"Phone"<<setw(20)<<"Salary"<<endl;
+	Staff_file<<"--------------------------------------------------------------------------------------------------------------"<<endl;
 	while (P != tail->getRight())
 	{
-		Show_File<<P->getData();
+		Staff_file<<P->getData();
+		P = P->getRight();
+	}
+	cout <<"DONE !"<< endl;
+	// Staff_file.close();
+}
+template<class Data>
+void List<Data>::Food_F()
+{
+	fstream Food_file;
+	Food_file.open("E:\\CNTT3\\QuanLyCafe\\Food.txt");
+	Node<Data> *P = head;
+    Food_file <<setw(20)<<"ID"<<setw(20)<<"Food's Name"<<setw(20)<<"Price"<<endl;
+	Food_file<<"----------------------------------------------------------------------------------------"<<endl;
+	while (P != tail->getRight())
+	{
+		Food_file<<P->getData();
 		P = P->getRight();
 	}
 	cout << endl;
+	Food_file.close();
 }
-
 
 template<class Data>
-void List<Data>::SortList()
+void List<Data>::Order_F()
 {
+	fstream Order_file;
+	Order_file.open("E:\\CNTT3\\QuanLyCafe\\Order.txt");
 	Node<Data> *P = head;
-	for(Node<Data> *phead1 = head; phead1 != NULL; phead1 = phead1->getRight())
+    Order_file <<setw(20)<<"ID"<<setw(20)<<"Order's Name"<<setw(20)<<"Price"<<endl;
+	Order_file<<"----------------------------------------------------------------------------------------"<<endl;
+	while (P != tail->getRight())
 	{
-		for(Node<Data> *phead2 = head->getRight(); phead2 != NULL;phead2 = phead2->getRight())
-		{
-			if(phead1->getData().Get_ID() > phead2->getData().Get_ID())
-				{
-					Node<Data> *temp;
-					// temp->setData(phead1->getData());
-					// temp->setLeft(phead1->getLeft());
-					// temp->setRight(phead1->getRight());
-
-					// phead1->setData(phead2->getData()) ;
-					// phead1->setLeft(phead2->getLeft()) ;
-					// phead1->setRight(phead2->getRight()) ;
-				
-
-					// phead2->setData(temp->getData())  ;
-					// phead2->setLeft(temp->getLeft()) ;
-					// phead2->setRight(temp->getRight())  ;
-
-					temp =phead1;
-					phead1 =phead2;
-					phead2 =temp;
-					// phead1->getData().Output();
-					// phead2->getData().Output();
-			
-				}
-		}
+		Order_file<<P->getData();
+		P = P->getRight();
 	}
+	cout << endl;
+	Order_file.close();
 }
+
+
+
 
 
 // g++  List.cpp Staff.cpp Food.cpp FoodCategory.cpp main.cpp -o demo

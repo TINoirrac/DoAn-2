@@ -41,38 +41,6 @@ void Staff::Input()
     cout << endl;
 }
 
-// void Staff::Input()
-// {
-//     fstream fStaff;
-//     fStaff.open("E:\\CNTT3\\QuanLyCafe\\Staff.txt");
-//     cout << "ID : ";
-//     cin >> this->IDStaff;
-//     fStaff<<this->IDStaff;
-//     cout<<endl;
-
-//     cout << "FullName : ";
-//     fflush(stdin);
-//     getline(cin, this->FullName);
-//     fStaff<<this->FullName;
-//     cout<<endl;
-
-//     cout << "Age : ";
-//     cin >> this->Age;
-//     fStaff<<this->Age;
-//     cout<<endl;
-
-//     cout << "Phone : ";
-//     fflush(stdin);
-//     getline(cin, this->Numberphone);
-//     fStaff<<this->Numberphone;
-//     cout<<endl;
-    
-//     cout << "Salary: ";
-//     fflush(stdin);
-//     getline(cin, this->Salary);
-//     fStaff<<this->Salary;
-//     cout<<endl;
-// }
 void Staff::Output()
 {
     cout << setw(20) << this->IDStaff << setw(20)
