@@ -1,9 +1,9 @@
 #include <iostream>
-#include<iomanip>
-#include"Menu.h"
-#include<fstream>
-#include"Staff.h"
-#include"Orderman.h"
+#include <iomanip>
+#include "Menu.h"
+#include <fstream>
+#include "Staff.h"
+#include "Orderman.h"
 using namespace std;
 // g++  List.cpp Staff.cpp Food.cpp  Order.cpp Orderman.cpp  main.cpp -o demo
 int main()
@@ -18,17 +18,18 @@ int main()
        Menu m;
        m.printTitle();
        int choice;
-       int choice__Staff,choice_Food,choice_Order;
-       int ID_Staff,ID_Food,ID_Order;
-       List<Staff> l_Staff ;
+       int choice__Staff, choice_Food, choice_Order;
+       int ID_Staff, ID_Food, ID_Order;
+       List<Staff> l_Staff;
        List<Food> l_Food;
        List<Order> l_Order;
        Orderman L_O;
-   do{
-       m.printMenu();
-       cin>>choice;
-       switch (choice)
+       do
        {
+              m.printMenu();
+              cin >> choice;
+              switch (choice)
+              {
               case 1:
               do{
                      m.printMenuStaff();
@@ -70,7 +71,7 @@ int main()
                                    }
               }while(choice__Staff!=0);
                      break;
-       //THUC DON
+                     // THUC DON
               case 2:
               do{
                      m.printMenuFood();
@@ -155,6 +156,6 @@ int main()
                             }
                      } while (choice_Order != 0);
                      break;
-       }
-   }while(choice !=0);
+              }
+       } while (choice != 0);
 }

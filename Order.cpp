@@ -2,7 +2,7 @@
 Order::Order()
 {
 }
-Order::Order(int IDOrder, int quantity, float total, string datecheckin, string datecheckout)
+Order::Order(int IDOrder, int quantity, float total, date datecheckin, date datecheckout)
     : IDOrder(IDOrder), quantity(quantity), total(total), datecheckin(datecheckin), datecheckout(datecheckout)
 {
 }

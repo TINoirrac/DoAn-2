@@ -1,21 +1,30 @@
 #include "List.h"
-#include<iostream>
-#include<fstream>
-#include<iomanip>
+#include <iostream>
+#include <fstream>
+#include <iomanip>
 using namespace std;
-template<class Data>
+template <class Data>
 List<Data>::List()
 {
-    this->head = NULL;
-    this->tail = NULL;
+	this->head = NULL;
+	this->tail = NULL;
 }
-template<class Data>
+template <class Data>
 int List<Data>::isEmpty()
 {
 	return (head == NULL);
 }
-
-template<class Data>
+template <class Data>
+Node<Data> *List<Data>::get_head()
+{
+	return this->head;
+}
+template <class Data>
+Node<Data> *List<Data>::get_tail()
+{
+	return this->tail;
+}
+template <class Data>
 void List<Data>::Insert(Data s)
 {
 	Node<Data> *P = new Node<Data>(s);
@@ -26,32 +35,32 @@ void List<Data>::Insert(Data s)
 	}
 	else
 	{
-		tail->setRight(P); //ket noi voi danh sach
-		P->setLeft(tail);  //P tro ve node ben trai
-		tail = P;		   //luu lai vi tri cuoi
+		tail->setRight(P); // ket noi voi danh sach
+		P->setLeft(tail);  // P tro ve node ben trai
+		tail = P;		   // luu lai vi tri cuoi
 	}
 }
-template<class Data>
+template <class Data>
 Node<Data> *List<Data>::Search(int IDData)
 {
 	Node<Data> *P = head;
-	while (P != NULL && P->getData().Get_ID() != IDData) //duyet danh sach den khi tim thay hoac den khi het danh sach
+	while (P != NULL && P->getData().Get_ID() != IDData) // duyet danh sach den khi tim thay hoac den khi het danh sach
 	{
 		P = P->getRight();
 	}
 	if (P != NULL)
 	{
-		cout<<P->getData(); //tra ve vi tri tim thay
+		cout << P->getData(); // tra ve vi tri tim thay
 	}
 	else
-		cout << "KHONG TIM THAY! "; //khong tim thay
+		cout << "KHONG TIM THAY! "; // khong tim thay
 	return P;
 }
 
-template<class Data>
+template <class Data>
 void List<Data>::Delete_Node(int IDData)
 {
-	Node <Data> *temp = Search(IDData);
+	Node<Data> *temp = Search(IDData);
 	if (head == temp)
 		head = temp->getRight();
 	if (temp->getRight() != NULL)
@@ -61,13 +70,13 @@ void List<Data>::Delete_Node(int IDData)
 	if (tail == temp)
 		tail = temp->getLeft();
 }
-template<class Data>
+template <class Data>
 void List<Data>::Update(int IDData)
 {
 	Node<Data> *P = Search(IDData);
 	Data s;
-	cout << "\n\t----------CAP NHAT THONG TIN DATA----------"<< endl;
-	cin>>s;
+	cout << "\n\t----------CAP NHAT THONG TIN DATA----------" << endl;
+	cin >> s;
 	P->setData(s);
 }
 template <class Data>
@@ -80,32 +89,31 @@ Node<Data> *List<Data>::get_tail()
 {
 	return this->tail;
 }
-template<class Data>
+template <class Data>
 void List<Data>::Input()
 {
 	int i = 1;
 	Data s;
 	do
 	{
-		cout <<setw(20)<<"----------THEM DATA---------" << endl;
-		cin>>s;
+		cout << setw(20) << "----------THEM DATA---------" << endl;
+		cin >> s;
 		// s.Input();
 		if (i != 0)
 			Insert(s);
 		cout << "Tiep tuc? (1.Yes 0.No): ";
 		cin >> i;
-		cout<<endl;
-	} while (i != 0); //nhap 0 de ket thuc
-
+		cout << endl;
+	} while (i != 0); // nhap 0 de ket thuc
 }
-template<class Data>
+template <class Data>
 void List<Data>::Show()
 {
 	Node<Data> *P = head;
-	cout<<"--------------------------------------------------------------------------------------------------------------"<<endl;
+	cout << "--------------------------------------------------------------------------------------------------------------" << endl;
 	while (P != tail->getRight())
 	{
-		cout<<P->getData();
+		cout << P->getData();
 		P = P->getRight();
 	}
 	cout << endl;
@@ -162,7 +170,6 @@ void List<Data>::Order_F()
 	cout << endl;
 	Order_file.close();
 }
-
 
 
 
