@@ -40,7 +40,7 @@ int main()
                             case 2:
                                    cout << "\nTHONG TIN NHAN VIEN" << endl;
                                    cout << setw(20) << "ID" << setw(20) << "FullName" << setw(20) << "Age" << setw(20) << "Phone" << setw(20) << "Salary" << endl;
-                                   cout << "----------------------------------------------------------------------------------------" << endl;           
+                                   cout << "----------------------------------------------------------------------------------------" << endl;
                                    cout << l_Staff;
                                    break;
                             case 3:
@@ -157,6 +157,8 @@ int main()
                             }
                      } while (choice_Order != 0);
                      break;
+              case 4:
+                     return 0;
               }
        } while (choice != 0);
 }
