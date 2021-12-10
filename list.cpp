@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+
 using namespace std;
 template <class Data>
 List<Data>::List()
@@ -60,6 +61,7 @@ Node<Data> *List<Data>::Search(int IDData)
 template <class Data>
 void List<Data>::Delete_Node(int IDData)
 {
+	
 	Node<Data> *temp = Search(IDData);
 	if (head == temp)
 		head = temp->getRight();
@@ -69,6 +71,7 @@ void List<Data>::Delete_Node(int IDData)
 		temp->getLeft()->setRight(temp->getRight());
 	if (tail == temp)
 		tail = temp->getLeft();
+
 }
 template <class Data>
 void List<Data>::Update(int IDData)
@@ -78,6 +81,7 @@ void List<Data>::Update(int IDData)
 	cout << "\n\t----------CAP NHAT THONG TIN DATA----------" << endl;
 	cin >> s;
 	P->setData(s);
+
 }
 
 template <class Data>
@@ -102,12 +106,16 @@ void List<Data>::Show()
 {
 	Node<Data> *P = head;
 	cout << "--------------------------------------------------------------------------------------------------------------" << endl;
+	if(head != NULL)
+	{
 	while (P != tail->getRight())
 	{
 		cout << P->getData();
 		P = P->getRight();
 	}
-	cout << endl;
+	}
+
+	cout <<endl;
 }
 
 template<class Data>
@@ -115,18 +123,20 @@ void List<Data>::Staff_F()
 {
 	fstream Staff_file;
 	Staff_file.open("E:\\CNTT3\\QuanLyCafe\\Staff.txt");
-	Staff_file.clear();
-
 	Node<Data> *P = head;
     Staff_file <<setw(20)<<"ID"<<setw(20)<<"FullName"<<setw(20)<<"Age"<<setw(20)<<"Phone"<<setw(20)<<"Salary"<<endl;
 	Staff_file<<"--------------------------------------------------------------------------------------------------------------"<<endl;
-	while (P != tail->getRight())
+	if(head != NULL)
+	{
+		while (P != tail->getRight())
 	{
 		Staff_file<<P->getData();
 		P = P->getRight();
 	}
+	}
+	
 	cout <<"DONE !"<< endl;
-	// Staff_file.close();
+	Staff_file.close();
 }
 template<class Data>
 void List<Data>::Food_F()
@@ -136,10 +146,13 @@ void List<Data>::Food_F()
 	Node<Data> *P = head;
     Food_file <<setw(20)<<"ID"<<setw(20)<<"Food's Name"<<setw(20)<<"Price"<<endl;
 	Food_file<<"----------------------------------------------------------------------------------------"<<endl;
+	if(head != NULL)
+	{
 	while (P != tail->getRight())
 	{
 		Food_file<<P->getData();
 		P = P->getRight();
+	}
 	}
 	cout << endl;
 	Food_file.close();
@@ -153,10 +166,13 @@ void List<Data>::Order_F()
 	Node<Data> *P = head;
     Order_file <<setw(20)<<"ID"<<setw(20)<<"Order's Name"<<setw(20)<<"Price"<<endl;
 	Order_file<<"----------------------------------------------------------------------------------------"<<endl;
+	if(head != NULL)
+	{
 	while (P != tail->getRight())
 	{
 		Order_file<<P->getData();
 		P = P->getRight();
+	}
 	}
 	cout << endl;
 	Order_file.close();

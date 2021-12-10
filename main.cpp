@@ -20,8 +20,8 @@ int main()
        int ID_Staff, ID_Food, ID_Order;
        List<Staff> l_Staff;
        List<Food> l_Food;
-       List<Order> l_Order_Node;
-       Orderlist l_Order;
+       List<Order> l_Order;
+       Orderlist l_OrderNode;
        do
        {
               m.printMenu();
@@ -80,7 +80,7 @@ int main()
                             {
                             case 1:
                                    cout << "\nTHONG TIN THUC DON" << endl;
-                                   cout << setw(20) << "ID choice_Foodgory" << setw(20) << "Choice_Foodgory's Name" << endl;
+                                   cout << setw(20) << "IDOrder" << setw(20) << "Food's Name" << setw(20) << "Price" << endl;
                                    l_Food.Show();
                                    break;
                             case 2:
@@ -123,34 +123,34 @@ int main()
                             {
                             case 1:
                                    cout << "\tTHONG TIN DON DAT HANG" << endl;
-                                   cout << setw(20) << "ID" << setw(20) << "FullName" << setw(20) << "Age" << setw(20) << "Phone" << setw(20) << "Salary" << endl;
-                                   l_Order.output();
+                                   cout << setw(20) << "IDOrder" << setw(20) << "Food's Name" << setw(20) << "Price" << endl;
+                                   l_OrderNode.output();
                                    break;
                             case 2:
-                                   l_Order.loadmenu(l_Food);
+                                   l_OrderNode.loadmenu(l_Food);
                                    cout << "\tNHAP THONG TIN DON DAT HANG" << endl;
-                                   l_Order.input();
+                                   l_OrderNode.input();
                                    break;
                             case 3:
                                    cout << "\nXOA THONG TIN DON DAT HANG THEO ID" << endl;
                                    cout << "Nhap ID DON DAT HANG can xoa : ";
                                    cin >> ID_Order;
-                                   l_Order.delete_order(ID_Order);
+                                   l_OrderNode.delete_order(ID_Order);
                                    break;
                             case 4:
                                    cout << "\nCAP NHAT THONG TIN DON DAT HANG THEO MA ID" << endl;
                                    cout << "Nhap ID DON DAT HANG can cap nhat : ";
                                    cin >> ID_Order;
-                                   l_Order.update_order(ID_Order);
+                                   l_OrderNode.update_order(ID_Order);
                                    break;
                             case 5:
                                    cout << "\nTIM KIEM THONG TIN DON DAT HANG THEO MA DON DAT HANG" << endl;
                                    cout << "Nhap ID DON DAT HANG can tim kiem : ";
                                    cin >> ID_Order;
-                                   l_Order.search_order(ID_Order);
+                                   l_OrderNode.search_order(ID_Order);
                                    break;
                             case 6:
-                                   // l_Order.Order_F();
+                                   l_Order.Order_F();
                                    break;
                             default:
                                    break;
