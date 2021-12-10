@@ -26,7 +26,7 @@ void Order::Set_IDOrder(int IDOrder)
 }
 ostream &operator<<(ostream &cout, const Order &o)
 {
-    cout << "IDFood: " << o.IDOrder << endl;
+    cout << "IDOrder: " << o.IDOrder << endl;
     cout << "Cac mon da chon:" << endl;
     cout << o.l_food << endl;
     cout << "Tong gia:" << o.total << endl;
@@ -40,15 +40,21 @@ istream &operator>>(istream &cin, Order &o)
 }
 void Order::select_food(List<Food> l_menu)
 {
-    int i = 1, n, IDFood;
+    int i, n, IDFood;
     this->total = 0;
+    Node<Food> *temp;
     do
     {
         cout << "Nhap ID mon: ";
         cin >> IDFood;
-        Node<Food> *temp = l_menu.Search(IDFood);
-        total += temp->getData().Get_Price();
-        this->l_food.Insert(temp->getData());
+        temp = l_menu.Search(IDFood);
+        if (temp != NULL)
+        {
+            total += temp->getData().Get_Price();
+            this->l_food.Insert(temp->getData());
+        }
+        else
+            this->l_food.Insert(Food());
         cout << "Tiep tuc chon mon? (1.Yes 0.No): ";
         cin >> i;
     } while (i != 0);

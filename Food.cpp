@@ -1,7 +1,7 @@
 #include "Food.h"
 #include <iomanip>
 #include <string>
-Food::Food(int ID, string NameFood, float Prices)
+Food::Food(int ID, string NameFood, float Price)
 {
     this->ID = ID;
     this->NameFood = NameFood;
@@ -30,10 +30,10 @@ istream &operator>>(istream &in, Food &f)
     cout << endl;
     return in;
 }
-ostream &operator<<(ostream &out, const Food &f)
+ostream &operator<<(ostream &cout, const Food &f)
 {
-    out << setw(20) << f.ID << setw(20) << f.NameFood << setw(20) << f.Price << endl;
-    return out;
+    cout << setw(20) << f.ID << setw(20) << f.NameFood << setw(20) << f.Price << endl;
+    return cout;
 }
 void Food::Input()
 {

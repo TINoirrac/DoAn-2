@@ -159,23 +159,23 @@ void List<Data>::Food_F()
 }
 
 template<class Data>
-void List<Data>::Order_F()
-{
-	fstream Order_file;
-	Order_file.open("E:\\CNTT3\\QuanLyCafe\\Order.txt");
-	Node<Data> *P = head;
-    Order_file <<setw(20)<<"ID"<<setw(20)<<"Order's Name"<<setw(20)<<"Price"<<endl;
-	Order_file<<"----------------------------------------------------------------------------------------"<<endl;
-	if(head != NULL)
-	{
-	while (P != tail->getRight())
-	{
-		Order_file<<P->getData();
-		P = P->getRight();
-	}
-	}
-	cout << endl;
-	Order_file.close();
+// void List<Data>::Order_F()
+// {
+// 	fstream Order_file;
+// 	Order_file.open("E:\\CNTT3\\QuanLyCafe\\Order.txt");
+// 	Node<Data> *P = head;
+//     Order_file <<setw(20)<<"ID"<<setw(20)<<"Order's Name"<<setw(20)<<"Price"<<endl;
+// 	Order_file<<"----------------------------------------------------------------------------------------"<<endl;
+// 	if(head != NULL)
+// 	{
+// 	while (P != tail->getRight())
+// 	{
+// 		Order_file<<P->getData();
+// 		P = P->getRight();
+// 	}
+// 	}
+// 	cout << endl;
+// 	Order_file.close();
 }
 
 
