@@ -54,11 +54,17 @@ void Orderlist::output_file()
     fstream Order_file;
     Order_file.open("Order.txt");
     Node<Order> *P = this->l_Order.get_head();
+    cout << setw(20) << "ID" << setw(20) << "Food's Name" << setw(20) << "Price" << endl;
+    cout << "----------------------------------------------------------------------------------------" << endl;
+    if(this->l_Order.get_head() != NULL)
+    {
     while (P != this->l_Order.get_tail()->getRight())
     {
         Order_file << P->getData();
         P = P->getRight();
     }
+    }
+
     cout << endl;
     Order_file.close();
 }

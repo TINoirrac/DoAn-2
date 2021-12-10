@@ -20,8 +20,7 @@ int main()
        int ID_Staff, ID_Food, ID_Order;
        List<Staff> l_Staff;
        List<Food> l_Food;
-       List<Order> l_Order;
-       Orderlist l_OrderNode;
+       Orderlist l_Order;
        do
        {
               m.printMenu();
@@ -42,7 +41,8 @@ int main()
                             case 2:
                                    cout << "\nTHONG TIN NHAN VIEN" << endl;
                                    cout << setw(20) << "ID" << setw(20) << "FullName" << setw(20) << "Age" << setw(20) << "Phone" << setw(20) << "Salary" << endl;
-                                   l_Staff.Show();
+                                   cout << "----------------------------------------------------------------------------------------" << endl;           
+                                   cout << l_Staff;
                                    break;
                             case 3:
                                    cout << "\nXOA THONG TIN NHAN VIEN THEO ID" << endl;
@@ -80,8 +80,9 @@ int main()
                             {
                             case 1:
                                    cout << "\nTHONG TIN THUC DON" << endl;
-                                   cout << setw(20) << "IDOrder" << setw(20) << "Food's Name" << setw(20) << "Price" << endl;
-                                   l_Food.Show();
+                                   cout << setw(20) << "ID" << setw(20) << "Food's Name" << setw(20) << "Price" << endl;
+                                   cout << "----------------------------------------------------------------------------------------" << endl;
+                                   cout << l_Food;
                                    break;
                             case 2:
                                    cout << "\nNHAP THONG TIN THUC DON" << endl;
@@ -123,34 +124,34 @@ int main()
                             {
                             case 1:
                                    cout << "\tTHONG TIN DON DAT HANG" << endl;
-                                   cout << setw(20) << "IDOrder" << setw(20) << "Food's Name" << setw(20) << "Price" << endl;
-                                   l_OrderNode.output();
+                                   cout << setw(20) << "ID" << setw(20) << "Food's Name" << setw(20) << "Price" << endl;
+                                   l_Order.output();
                                    break;
                             case 2:
-                                   l_OrderNode.loadmenu(l_Food);
+                                   l_Order.loadmenu(l_Food);
                                    cout << "\tNHAP THONG TIN DON DAT HANG" << endl;
-                                   l_OrderNode.input();
+                                   l_Order.input();
                                    break;
                             case 3:
                                    cout << "\nXOA THONG TIN DON DAT HANG THEO ID" << endl;
                                    cout << "Nhap ID DON DAT HANG can xoa : ";
                                    cin >> ID_Order;
-                                   l_OrderNode.delete_order(ID_Order);
+                                   l_Order.delete_order(ID_Order);
                                    break;
                             case 4:
                                    cout << "\nCAP NHAT THONG TIN DON DAT HANG THEO MA ID" << endl;
                                    cout << "Nhap ID DON DAT HANG can cap nhat : ";
                                    cin >> ID_Order;
-                                   l_OrderNode.update_order(ID_Order);
+                                   l_Order.update_order(ID_Order);
                                    break;
                             case 5:
                                    cout << "\nTIM KIEM THONG TIN DON DAT HANG THEO MA DON DAT HANG" << endl;
                                    cout << "Nhap ID DON DAT HANG can tim kiem : ";
                                    cin >> ID_Order;
-                                   l_OrderNode.search_order(ID_Order);
+                                   l_Order.search_order(ID_Order);
                                    break;
                             case 6:
-                                   // l_Order.;
+                                   l_Order.output_file();
                                    break;
                             default:
                                    break;
