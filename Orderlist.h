@@ -13,7 +13,8 @@ public:
     void loadmenu(const List<Food> &);
     void delete_order(int);
     void search_order(int);
-    void update_order(int);
+    Node<Order> *update_order(int);
     void input();
     void output();
+    void output_file();
 };

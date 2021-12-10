@@ -1,9 +1,9 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-
-class Menu{
-    public:
-        void printTitle()
+class Menu
+{
+public:
+	void printTitle()
 	{
 		cout << "-------------------------------------------------------------------------------" << endl;
 		cout << "|      Dai hoc Bach Khoa - Dai hoc Da Nang - Khoa Cong Nghe Thong Tin         |" << endl;
@@ -14,19 +14,18 @@ class Menu{
 		cout << "|                  Giang vien huong dan: TRUONG NGOC CHAU                     |" << endl;
 		cout << "-------------------------------------------------------------------------------" << endl;
 	}
-    void printMenu()
+	void printMenu()
 	{
 		cout << "----------------------------------------" << endl;
 		cout << "|                  MENU                 |" << endl;
 		cout << "|  1. Quan ly thong tin nhan vien       |" << endl;
 		cout << "|  2. Quan ly thuc don                  |" << endl;
 		cout << "|  3. Quan ly dat hang                  |" << endl;
-		cout << "|  4. Quan ly hoa don                   |" << endl;
 		cout << "|  5. Ket thuc                          |" << endl;
 		cout << "----------------------------------------" << endl;
 		cout << "Hay nhap lua chon: ";
 	}
-    void printMenuStaff()
+	void printMenuStaff()
 	{
 		cout << "-------------------------------------------------------------" << endl;
 		cout << "|                       MENU STAFF                          |" << endl;
@@ -40,7 +39,7 @@ class Menu{
 		cout << "-------------------------------------------------------------" << endl;
 		cout << "Hay nhap lua chon: ";
 	}
-    void printMenuFood()
+	void printMenuFood()
 	{
 		cout << "-------------------------------------------------------------" << endl;
 		cout << "|                       MENU FOOD                            |" << endl;
@@ -49,14 +48,14 @@ class Menu{
 		cout << "|  3. Xoa 1 thuc don theo ma thuc don                        |" << endl;
 		cout << "|  4. Cap nhat thong tin cua thuc don theo ma thuc don       |" << endl;
 		cout << "|  5. Tim kiem thong tin cua thuc don theo ma thuc don       |" << endl;
-		cout << "|  6. Xuat danh sach thong tin thuc don ra FILE             |" << endl;
+		cout << "|  6. Xuat danh sach thong tin thuc don ra FILE              |" << endl;
 		cout << "|  0. Quay lai menu truoc                                    |" << endl;
 		cout << "-------------------------------------------------------------" << endl;
 		cout << "Hay nhap lua chon: ";
 	}
-   void printMenuOrder()
+	void printMenuOrder()
 	{
-			cout << "-------------------------------------------------------------" << endl;
+		cout << "-------------------------------------------------------------" << endl;
 		cout << "|                       MENU ORDER                               |" << endl;
 		cout << "|  1. Xem danh sach tat ca cac don dat hang                      |" << endl;
 		cout << "|  2. Them 1 don dat hang vao cuoi danh sach                     |" << endl;
@@ -65,18 +64,6 @@ class Menu{
 		cout << "|  5. Tim kiem thong tin cua don dat hang theo ma don dat hang   |" << endl;
 		cout << "|  6. Xuat danh sach thong tin dat hang ra FILE                  |" << endl;
 		cout << "|  0. Quay lai menu truoc                                        |" << endl;
-		cout << "-------------------------------------------------------------" << endl;
-		cout << "Hay nhap lua chon: ";
-	}
-    void printBill()
-	{
-		cout << "-------------------------------------------------------------" << endl;
-		cout << "|                      MENU BILL                            |" << endl;
-		cout << "|  1.Them bill                                              |" << endl;
-		cout << "|  2.Xuat                                                   |" << endl;
-		cout << "|  3.Xoa                                                    |" << endl;
-		cout << "|  4.Thong ke tong                                          |" << endl;
-		cout << "|  0. Quay lai menu truoc                                   |" << endl;
 		cout << "-------------------------------------------------------------" << endl;
 		cout << "Hay nhap lua chon: ";
 	}

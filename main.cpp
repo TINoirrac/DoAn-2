@@ -42,7 +42,7 @@ int main()
                             case 2:
                                    cout << "\nTHONG TIN NHAN VIEN" << endl;
                                    cout << setw(20) << "ID" << setw(20) << "FullName" << setw(20) << "Age" << setw(20) << "Phone" << setw(20) << "Salary" << endl;
-                                   l_Staff.Show();
+                                   cout << l_Staff;
                                    break;
                             case 3:
                                    cout << "\nXOA THONG TIN NHAN VIEN THEO ID" << endl;
@@ -80,8 +80,9 @@ int main()
                             {
                             case 1:
                                    cout << "\nTHONG TIN THUC DON" << endl;
-                                   cout << setw(20) << "ID choice_Foodgory" << setw(20) << "Choice_Foodgory's Name" << endl;
-                                   l_Food.Show();
+                                   cout << setw(20) << "ID" << setw(20) << "Food's Name" << setw(20) << "Price" << endl;
+                                   cout << "----------------------------------------------------------------------------------------" << endl;
+                                   cout << l_Food;
                                    break;
                             case 2:
                                    cout << "\nNHAP THONG TIN THUC DON" << endl;
@@ -123,7 +124,6 @@ int main()
                             {
                             case 1:
                                    cout << "\tTHONG TIN DON DAT HANG" << endl;
-                                   cout << setw(20) << "ID" << setw(20) << "FullName" << setw(20) << "Age" << setw(20) << "Phone" << setw(20) << "Salary" << endl;
                                    l_Order.output();
                                    break;
                             case 2:
@@ -150,7 +150,7 @@ int main()
                                    l_Order.search_order(ID_Order);
                                    break;
                             case 6:
-                                   // l_Order.Order_F();
+                                   l_Order.output_file();
                                    break;
                             default:
                                    break;

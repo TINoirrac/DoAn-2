@@ -53,31 +53,39 @@ Node<Data> *List<Data>::Search(int IDData)
 		cout << P->getData(); // tra ve vi tri tim thay
 	}
 	else
-		cout << "KHONG TIM THAY! "; // khong tim thay
+		cout << "KHONG TIM THAY! " << endl; // khong tim thay
 	return P;
 }
 
 template <class Data>
-void List<Data>::Delete_Node(int IDData)
+Node<Data> *List<Data>::Delete_Node(int IDData)
 {
 	Node<Data> *temp = Search(IDData);
-	if (head == temp)
-		head = temp->getRight();
-	if (temp->getRight() != NULL)
-		temp->getRight()->setLeft(temp->getLeft());
-	if (temp->getLeft() != NULL)
-		temp->getLeft()->setRight(temp->getRight());
-	if (tail == temp)
-		tail = temp->getLeft();
+	if (temp != NULL)
+	{
+		if (head == temp)
+			head = temp->getRight();
+		if (temp->getRight() != NULL)
+			temp->getRight()->setLeft(temp->getLeft());
+		if (temp->getLeft() != NULL)
+			temp->getLeft()->setRight(temp->getRight());
+		if (tail == temp)
+			tail = temp->getLeft();
+	}
+	return temp;
 }
 template <class Data>
-void List<Data>::Update(int IDData)
+Node<Data> *List<Data>::Update(int IDData)
 {
 	Node<Data> *P = Search(IDData);
-	Data s;
-	cout << "\n\t----------CAP NHAT THONG TIN DATA----------" << endl;
-	cin >> s;
-	P->setData(s);
+	if (P != NULL)
+	{
+		Data s;
+		cout << "\n\t----------CAP NHAT THONG TIN DATA----------" << endl;
+		cin >> s;
+		P->setData(s);
+	}
+	return P;
 }
 
 template <class Data>
@@ -97,20 +105,19 @@ void List<Data>::Input()
 		cout << endl;
 	} while (i != 0); // nhap 0 de ket thuc
 }
-template <class Data>
-void List<Data>::Show()
+template <class out>
+ostream &operator<<(ostream &cout, const List<out> &l)
 {
-	Node<Data> *P = head;
-	cout << "--------------------------------------------------------------------------------------------------------------" << endl;
-	while (P != tail->getRight())
+	Node<out> *P = l.head;
+	while (P != l.tail->getRight())
 	{
 		cout << P->getData();
 		P = P->getRight();
 	}
 	cout << endl;
+	return cout;
 }
-
-template<class Data>
+template <class Data>
 void List<Data>::Staff_F()
 {
 	fstream Staff_file;
@@ -118,63 +125,31 @@ void List<Data>::Staff_F()
 	Staff_file.clear();
 
 	Node<Data> *P = head;
-    Staff_file <<setw(20)<<"ID"<<setw(20)<<"FullName"<<setw(20)<<"Age"<<setw(20)<<"Phone"<<setw(20)<<"Salary"<<endl;
-	Staff_file<<"--------------------------------------------------------------------------------------------------------------"<<endl;
+	Staff_file << setw(20) << "ID" << setw(20) << "FullName" << setw(20) << "Age" << setw(20) << "Phone" << setw(20) << "Salary" << endl;
+	Staff_file << "--------------------------------------------------------------------------------------------------------------" << endl;
 	while (P != tail->getRight())
 	{
-		Staff_file<<P->getData();
+		Staff_file << P->getData();
 		P = P->getRight();
 	}
-	cout <<"DONE !"<< endl;
+	cout << "DONE !" << endl;
 	// Staff_file.close();
 }
-template<class Data>
+template <class Data>
 void List<Data>::Food_F()
 {
 	fstream Food_file;
 	Food_file.open("E:\\CNTT3\\QuanLyCafe\\Food.txt");
 	Node<Data> *P = head;
-    Food_file <<setw(20)<<"ID"<<setw(20)<<"Food's Name"<<setw(20)<<"Price"<<endl;
-	Food_file<<"----------------------------------------------------------------------------------------"<<endl;
+	Food_file << setw(20) << "ID" << setw(20) << "Food's Name" << setw(20) << "Price" << endl;
+	Food_file << "----------------------------------------------------------------------------------------" << endl;
 	while (P != tail->getRight())
 	{
-		Food_file<<P->getData();
+		Food_file << P->getData();
 		P = P->getRight();
 	}
 	cout << endl;
 	Food_file.close();
-}
-
-template<class Data>
-void List<Data>::Order_F()
-{
-	fstream Order_file;
-	Order_file.open("E:\\CNTT3\\QuanLyCafe\\Order.txt");
-	Node<Data> *P = head;
-    Order_file <<setw(20)<<"ID"<<setw(20)<<"Order's Name"<<setw(20)<<"Price"<<endl;
-	Order_file<<"----------------------------------------------------------------------------------------"<<endl;
-	while (P != tail->getRight())
-	{
-		Order_file<<P->getData();
-		P = P->getRight();
-	}
-	cout << endl;
-	Order_file.close();
-}
-
-
-template <class out>
-ostream &operator<<(ostream &cout, const List<out> &l)
-{
-    Node<out> *P = l.head;
-    cout << "--------------------------------------------------------------------------------------------------------------" << endl;
-    while (P != l.tail->getRight())
-    {
-        cout << P->getData();
-        P = P->getRight();
-    }
-    cout << endl;
-    return cout;
 }
 
 // g++  List.cpp Staff.cpp Food.cpp FoodCategory.cpp main.cpp -o demo

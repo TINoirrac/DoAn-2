@@ -1,8 +1,9 @@
 #include "Orderlist.h"
+#include <fstream>
 void Orderlist::loadmenu(const List<Food> &l_menu)
 {
     this->l_menu = l_menu;
-    this->l_menu.Show();
+    cout << this->l_menu;
 }
 void Orderlist::delete_order(int IDOrder)
 {
@@ -12,13 +13,17 @@ void Orderlist::search_order(int IDOrder)
 {
     this->l_Order.Search(IDOrder);
 }
-void Orderlist::update_order(int IDOrder)
+Node<Order> *Orderlist::update_order(int IDOrder)
 {
     Node<Order> *P = this->l_Order.Search(IDOrder);
-    Order o;
-    cout << "\n\t---------THAY DOI THONG TIN ORDER----------" << endl;
-    o.select_food(this->l_menu);
-    P->setData(o);
+    if (P != NULL)
+    {
+        Order o;
+        cout << "\n\t---------THAY DOI THONG TIN ORDER----------" << endl;
+        o.select_food(this->l_menu);
+        P->setData(o);
+    }
+    return P;
 }
 void Orderlist::input()
 {
@@ -43,4 +48,17 @@ void Orderlist::output()
         cout << P->getData();
         P = P->getRight();
     }
+}
+void Orderlist::output_file()
+{
+    fstream Order_file;
+    Order_file.open("Order.txt");
+    Node<Order> *P = this->l_Order.get_head();
+    while (P != this->l_Order.get_tail()->getRight())
+    {
+        Order_file << P->getData();
+        P = P->getRight();
+    }
+    cout << endl;
+    Order_file.close();
 }

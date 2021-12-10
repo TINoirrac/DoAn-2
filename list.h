@@ -9,16 +9,14 @@ public:
     List();
     int isEmpty();
     void Input();
-    void Show();
     void Staff_F();
     void Food_F();
-    void Order_F();
     void Insert(Data);
     Node<Data> *get_head();
     Node<Data> *get_tail();
     Node<Data> *Search(int);
-    void Delete_Node(int);
-    void Update(int);
+    Node<Data> *Delete_Node(int);
+    Node<Data> *Update(int);
     void SortList();
     template <class out>
     friend ostream &operator<<(ostream &, const List<out> &);

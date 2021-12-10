@@ -10,7 +10,7 @@ private:
     float Price;
 
 public:
-    Food(int = 0, string = " ", float = 0);
+    Food(int = 0, string = "Khong co mon nao!", float = 0);
     ~Food();
     void Input();
     void Output();
