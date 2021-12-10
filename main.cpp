@@ -19,7 +19,6 @@ int main()
        int ID_Staff, ID_Food, ID_Order;
        List<Staff> l_Staff;
        List<Food> l_Food;
-       List<Order> l_Order_Node;
        Orderlist l_Order;
        do
        {
@@ -41,6 +40,7 @@ int main()
                             case 2:
                                    cout << "\nTHONG TIN NHAN VIEN" << endl;
                                    cout << setw(20) << "ID" << setw(20) << "FullName" << setw(20) << "Age" << setw(20) << "Phone" << setw(20) << "Salary" << endl;
+                                   cout << "----------------------------------------------------------------------------------------" << endl;           
                                    cout << l_Staff;
                                    break;
                             case 3:
@@ -123,6 +123,7 @@ int main()
                             {
                             case 1:
                                    cout << "\tTHONG TIN DON DAT HANG" << endl;
+                                   cout << setw(20) << "ID" << setw(20) << "Food's Name" << setw(20) << "Price" << endl;
                                    l_Order.output();
                                    break;
                             case 2:
