@@ -8,10 +8,6 @@ using namespace std;
 // g++  List.cpp Staff.cpp Food.cpp  Order.cpp Orderlist.cpp date.cpp  main.cpp -o demo
 int main()
 {
-       fstream Staff_file, Food_file, Order_file;
-       Staff_file.open("E:\\CNTT3\\QuanLyCafe\\Staff.txt");
-       Food_file.open("E:\\CNTT3\\QuanLyCafe\\Food.txt");
-       Order_file.open("E:\\CNTT3\\QuanLyCafe\\Order.txt");
        Menu m;
        m.printTitle();
        int choice;
@@ -123,7 +119,6 @@ int main()
                             {
                             case 1:
                                    cout << "\tTHONG TIN DON DAT HANG" << endl;
-                                   cout << setw(20) << "ID" << setw(20) << "Food's Name" << setw(20) << "Price" << endl;
                                    l_Order.output();
                                    break;
                             case 2:
@@ -157,7 +152,7 @@ int main()
                             }
                      } while (choice_Order != 0);
                      break;
-              case 4:
+              case 0:
                      return 0;
               }
        } while (choice != 0);

@@ -61,7 +61,7 @@ Node<Data> *List<Data>::Search(int IDData)
 template <class Data>
 Node<Data> *List<Data>::Delete_Node(int IDData)
 {
-	
+
 	Node<Data> *temp = Search(IDData);
 	if (temp != NULL)
 	{
@@ -111,15 +111,14 @@ template <class out>
 ostream &operator<<(ostream &cout, const List<out> &l)
 {
 	Node<out> *P = l.head;
-	if(l.head != NULL)
+	if (l.head != NULL)
 	{
 		while (P != l.tail->getRight())
-	{
-		cout << P->getData();
-		P = P->getRight();
+		{
+			cout << P->getData();
+			P = P->getRight();
+		}
 	}
-	}
-	
 	cout << endl;
 	return cout;
 }
@@ -129,18 +128,17 @@ void List<Data>::Staff_F()
 	fstream Staff_file;
 	Staff_file.open("Staff.txt");
 	Node<Data> *P = head;
-    Staff_file <<setw(20)<<"ID"<<setw(20)<<"FullName"<<setw(20)<<"Age"<<setw(20)<<"Phone"<<setw(20)<<"Salary"<<endl;
-	Staff_file<<"--------------------------------------------------------------------------------------------------------------"<<endl;
-	if(head != NULL)
+	Staff_file << setw(20) << "ID" << setw(20) << "FullName" << setw(20) << "Age" << setw(20) << "Phone" << setw(20) << "Salary" << endl;
+	Staff_file << "--------------------------------------------------------------------------------------------------------------" << endl;
+	if (head != NULL)
 	{
 		while (P != tail->getRight())
-	{
-		Staff_file << P->getData();
-		P = P->getRight();
+		{
+			Staff_file << P->getData();
+			P = P->getRight();
+		}
 	}
-	}
-	
-	cout <<"DONE !"<< endl;
+	cout << "DONE !" << endl;
 	Staff_file.close();
 }
 template <class Data>
@@ -149,15 +147,15 @@ void List<Data>::Food_F()
 	fstream Food_file;
 	Food_file.open("Food.txt");
 	Node<Data> *P = head;
-    Food_file <<setw(20)<<"ID"<<setw(20)<<"Food's Name"<<setw(20)<<"Price"<<endl;
-	Food_file<<"----------------------------------------------------------------------------------------"<<endl;
-	if(head != NULL)
+	Food_file << setw(20) << "ID" << setw(20) << "Food's Name" << setw(20) << "Price" << endl;
+	Food_file << "----------------------------------------------------------------------------------------" << endl;
+	if (head != NULL)
 	{
-	while (P != tail->getRight())
-	{
-		Food_file << P->getData();
-		P = P->getRight();
-	}
+		while (P != tail->getRight())
+		{
+			Food_file << P->getData();
+			P = P->getRight();
+		}
 	}
 	cout << endl;
 	Food_file.close();

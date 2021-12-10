@@ -21,7 +21,7 @@ public:
 		cout << "|  1. Quan ly thong tin nhan vien       |" << endl;
 		cout << "|  2. Quan ly thuc don                  |" << endl;
 		cout << "|  3. Quan ly dat hang                  |" << endl;
-		cout << "|  4. Ket thuc                          |" << endl;
+		cout << "|  0. Ket thuc                          |" << endl;
 		cout << "----------------------------------------" << endl;
 		cout << "Hay nhap lua chon: ";
 	}

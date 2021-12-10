@@ -30,6 +30,7 @@ ostream &operator<<(ostream &cout, const Order &o)
     cout << "Cac mon da chon:" << endl;
     cout << o.l_food << endl;
     cout << "Tong gia:" << o.total << endl;
+    cout << "----------------------------------------------------------------------------------------" << endl;
     return cout;
 }
 istream &operator>>(istream &cin, Order &o)
