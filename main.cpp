@@ -8,7 +8,6 @@ using namespace std;
 // g++  List.cpp Staff.cpp Food.cpp  Order.cpp Orderlist.cpp date.cpp  main.cpp -o demo
 int main()
 {
-
        fstream Staff_file, Food_file, Order_file;
        Staff_file.open("E:\\CNTT3\\QuanLyCafe\\Staff.txt");
        Food_file.open("E:\\CNTT3\\QuanLyCafe\\Food.txt");
