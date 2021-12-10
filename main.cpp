@@ -150,7 +150,7 @@ int main()
                                    l_OrderNode.search_order(ID_Order);
                                    break;
                             case 6:
-                                   l_Order.Order_F();
+                                   // l_Order.;
                                    break;
                             default:
                                    break;

@@ -12,7 +12,7 @@ public:
     void Show();
     void Staff_F();
     void Food_F();
-    void Order_F();
+    // void Order_F();
     void Insert(Data);
     Node<Data> *get_head();
     Node<Data> *get_tail();
