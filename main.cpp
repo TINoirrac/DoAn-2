@@ -118,12 +118,12 @@ int main()
                             switch (choice_Order)
                             {
                             case 1:
-                                   cout << "\tTHONG TIN DON DAT HANG" << endl;
+                                   cout << "\t\tTHONG TIN DON DAT HANG" << endl;
                                    l_Order.output();
                                    break;
                             case 2:
                                    l_Order.loadmenu(l_Food);
-                                   cout << "\tNHAP THONG TIN DON DAT HANG" << endl;
+                                   cout << "\t\tNHAP THONG TIN DON DAT HANG" << endl;
                                    l_Order.input();
                                    break;
                             case 3:

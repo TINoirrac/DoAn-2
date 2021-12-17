@@ -2,20 +2,17 @@
 #include "Food.h"
 #include "list.cpp"
 #include <string>
-#include "date.h"
 using namespace std;
 class Order
 {
-    int IDOrder;
+    int ID;
     int quantity;
     List<Food> l_food;
     float total;
-    date datecheckin;
-    date datecheckout;
 
 public:
     Order();
-    Order(int, int, float, date, date);
+    Order(int, int, float);
     Order(const Order &);
     ~Order();
     friend ostream &operator<<(ostream &, const Order &);

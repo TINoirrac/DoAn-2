@@ -32,7 +32,8 @@ istream &operator>>(istream &in, Food &f)
 }
 ostream &operator<<(ostream &cout, const Food &f)
 {
-    cout << setw(20) << f.ID << setw(20) << f.NameFood << setw(20) << f.Price << endl;
+    if (f.ID != 0 && f.NameFood != "" && f.Price != 0)
+        cout << setw(20) << f.ID << setw(20) << f.NameFood << setw(20) << f.Price << endl;
     return cout;
 }
 void Food::Input()

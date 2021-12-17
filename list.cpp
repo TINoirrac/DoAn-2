@@ -99,7 +99,6 @@ void List<Data>::Input()
 	{
 		cout << setw(20) << "----------THEM DATA---------" << endl;
 		cin >> s;
-		// s.Input();
 		if (i != 0)
 			Insert(s);
 		cout << "Tiep tuc? (1.Yes 0.No): ";

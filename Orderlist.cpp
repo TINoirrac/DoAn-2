@@ -3,6 +3,7 @@
 void Orderlist::loadmenu(const List<Food> &l_menu)
 {
     this->l_menu = l_menu;
+    cout << "\t\t\t\tTHUC DON" << endl;
     cout << this->l_menu;
 }
 void Orderlist::delete_order(int IDOrder)
@@ -20,6 +21,7 @@ Node<Order> *Orderlist::update_order(int IDOrder)
     {
         Order o;
         cout << "\n\t---------THAY DOI THONG TIN ORDER----------" << endl;
+        o.Set_IDOrder(IDOrder);
         o.select_food(this->l_menu);
         P->setData(o);
     }
